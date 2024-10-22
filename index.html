@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dragon Quest Monsters </title>
+    <link rel="stylesheet" href="styles.css">
+    
+  </head>
+    <body>
+        <div class="sidebar">
+            <h2>DWM
+                <br>
+                <img src="https://tcrf.net/images/8/8a/DWM-intro.png"></img>
+            </h2>
+            <ul>
+              <li><a href="#">Breeding Wizard</a></li>
+              <li><a href="#">Families</a></li>
+              <li><a href="#">Abilities</a></li>
+              <li><a href="#">What is this?</a></li>
+            </ul>
+          </div>
+        
+          <div class="main-content">
+            <p class="search-wrapper">
+              <label for="search-wrapper" class="big-title">Monster Search</label>
+              <div></div>
+              <input type='search' id="monster-search" placeholder="Search for a Monster!" />
+              <button type="button" id="monster-search-button">Search</button>
+            </p>
+            <div class='monster-stats-info'>
+              <div id='monster-portrait'></div>
+              <div id='monster-name'>Monster Name</div>
+              <div id='monster-family'>Monster Family</div>
+              <table border='1'>
+                <tr>
+                  <td>
+                  <div id='monster-max-level'>Max Level</div>
+                  </td>
+                  <td>
+                    <div id='monster-max-level-out'></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+              <div id='monster-experience'>EXP Growth</div>
+                  </td>
+                  <td>
+                    <div id='monster-experience-out'></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+              <div id='monster-hp'>HP</div>
+                  </td>
+                  <td><div id='monster-hp-out'></div></td>
+                </tr>
+                <tr>
+                  <td>
+              <div id='monster-mp'>MP</div>
+                  </td>
+                  <td>
+                    <div id='monster-mp-out'></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+              <div id='monster-at'>AT</div>
+                  </td>
+                  <td>
+                    <div id='monster-at-out'></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+               <div id='monster-df'>DF</div>  
+                  </td>
+                  <td>
+                    <div id='monster-df-out'></div> 
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+               <div id='monster-ag'>AG</div>  
+                  </td>
+                  <td>
+                    <div id='monster-ag-out'></div> 
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+               <div id='monster-in'>IN</div>  
+                  </td>
+                  <td>
+                    <div id='monster-in-out'></div> 
+                  </td>
+                </tr>
+              </table>
+              <div id="monster-skill-list">Skills: </div>
+            </div>
+            <br>
+            <div id="test-div">this is a test</div>
+          </div>
+          
+    </body>
+    <script src="script.js"></script>
+  </html>
