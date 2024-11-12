@@ -12,10 +12,11 @@ const monsterSkillList = document.getElementById('monster-skill-list');
 const searchButton = document.getElementById('monster-search-button');
 const testDiv = document.getElementById('test-div');
 const searchValue = document.getElementById('monster-search');
+const projectButton = document.getElementById('monster-project-stats-button');
 
 
 let monsterData = []; 
-let monsterStatCalcData = [];
+
 
 // Use the correct GitHub raw link
 fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/83e6c36a9773fae217f5aefb1842a74724e0f7dd/monsterData.json')
@@ -56,24 +57,28 @@ const getProjectedStats = () => {
   
 }
 
-//let monsterStatCalcData = [];
+let monsterStatCalcData = [];
 
-// fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/refs/heads/main/statCalc.json')
-//     .then(response => response.json())
-//     .then(data => {
-//         monsterStatCalcData=data;
+fetch('https://raw.githubusercontent.com/kwolfer2/Javascript-Projects/refs/heads/main/monstertoJSON/statCalc.json')
+    .then(response => response.json())
+    .then(data => {
+      
+      monsterStatCalcData = data;
+      console.log(monsterStatCalcData);
+      
+    })
+    .catch(error => console.error('Error calculating Monster stats:', error));
 
-//     })
-//   .catch(error => console.error('Error fetching Monster data:', error));
-
-// function calcStats() {
-//     const searchValue = document.getElementById('monster-search').value.trim().toLowerCase();
-
-//   // Search for the monster by name
-//   const findMonster = monsterData.find(p => p.name.toLowerCase() === searchValue);
-
-//   if(findMonster) {
-
+  function projectStats() {
+    //LVL
+    const currentLVL = parseInt(document.getElementById('monster-current-level-input').value);
+    const projectedLVL = parseInt(document.getElementById('monster-projected-level-input').value);
+    //HP
+      const currentHP = parseInt(document.getElementById('monster-current-HP-input').value);
+      const projectedHP = parseInt((document.getElementById('monster-projected-hp').value));
+      projectedHP.textContent = monsterStatCalcData[monsterHPGrowth.textContent][projectedLVL] + currentHP - monsterStatCalcData[monsterHPGrowth.textContent][currentLVL];
+    //MP
+  }
 
 searchButton.addEventListener('click', event => { 
   testDiv.textContent = `'button has been pressed'`;
@@ -87,3 +92,11 @@ searchValue.addEventListener('keydown', event => {
     searchMonster();
   }
 });
+projectButton.addEventListener('click', event => {
+  testDiv.textContent = `'project stats button has been pressed'`;
+  event.preventDefault();
+  projectStats();
+});
+
+console.log('CalcStats test');
+console.log(monsterStatCalcData);
