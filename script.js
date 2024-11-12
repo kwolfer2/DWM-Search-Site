@@ -29,6 +29,36 @@ fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/83e6c36a9773fae21
 function searchMonster() {
   const searchValue = document.getElementById('monster-search').value.trim().toLowerCase();
 
+  // Attempted suggestions help with ChatGPT
+  const suggestionsContainer = document.getElementById('suggestions');
+
+  suggestionsContainer.innerHTML = '';
+
+  const matches = monsterData.filter(monster =>
+    monster.name.toLowerCase().includes(searchValue)
+  );
+
+  matches.forEach(monster => {
+    const suggestion = document.createElement('div');
+    suggestion.classList.add('suggestion-item');
+    suggestion.textContent = monster.name;
+    suggestion.addEventListener('click', () => {
+      document.getElementById('search-input').value = monster.name;
+      suggestionsContainer.innerHTML = ''; // Clear suggestions on selection
+      // Add additional functionality here if you want to automatically search on selection
+    });
+    suggestionsContainer.appendChild(suggestion);
+  });
+
+  if (matches.length === 0) {
+    const noMatch = document.createElement('div');
+    noMatch.classList.add('no-match');
+    noMatch.textContent = 'No matches found';
+    suggestionsContainer.appendChild(noMatch);
+  }
+  // Attempted suggestions help with ChatGPT *end
+
+
   // Search for the monster by name
   const findMonster = monsterData.find(p => p.name.toLowerCase() === searchValue);
 
@@ -74,10 +104,29 @@ fetch('https://raw.githubusercontent.com/kwolfer2/Javascript-Projects/refs/heads
     const currentLVL = parseInt(document.getElementById('monster-current-level-input').value);
     const projectedLVL = parseInt(document.getElementById('monster-projected-level-input').value);
     //HP
-      const currentHP = parseInt(document.getElementById('monster-current-HP-input').value);
-      const projectedHP = parseInt((document.getElementById('monster-projected-hp').value));
-      projectedHP.textContent = monsterStatCalcData[monsterHPGrowth.textContent][projectedLVL] + currentHP - monsterStatCalcData[monsterHPGrowth.textContent][currentLVL];
+    const currentHP = parseInt(document.getElementById('monster-current-HP-input').value);
+    const projectedHP = document.getElementById('monster-projected-hp');
+    projectedHP.textContent = parseInt(monsterStatCalcData[monsterHPGrowth.textContent][projectedLVL] + currentHP - monsterStatCalcData[monsterHPGrowth.textContent][currentLVL]);
     //MP
+    const currentMP = parseInt(document.getElementById('monster-current-MP-input').value);
+    const projectedMP = document.getElementById('monster-projected-MP');
+    projectedMP.textContent = parseInt(monsterStatCalcData[monsterMPGrowth.textContent][projectedLVL] + currentMP - monsterStatCalcData[monsterMPGrowth.textContent][currentLVL]);
+    //AT
+    const currentAT = parseInt(document.getElementById('monster-current-AT-input').value);
+    const projectedAT = document.getElementById('monster-projected-AT');
+    projectedAT.textContent = parseInt(monsterStatCalcData[monsterATGrowth.textContent][projectedLVL] + currentAT - monsterStatCalcData[monsterATGrowth.textContent][currentLVL]);
+    //DF
+    const currentDF = parseInt(document.getElementById('monster-current-DF-input').value);
+    const projectedDF = document.getElementById('monster-projected-DF');
+    projectedDF.textContent = parseInt(monsterStatCalcData[monsterDFGrowth.textContent][projectedLVL] + currentDF - monsterStatCalcData[monsterDFGrowth.textContent][currentLVL]);
+    //AG
+    const currentAG = parseInt(document.getElementById('monster-current-AG-input').value);
+    const projectedAG = document.getElementById('monster-projected-AG');
+    projectedAG.textContent = parseInt(monsterStatCalcData[monsterAGGrowth.textContent][projectedLVL] + currentAG - monsterStatCalcData[monsterAGGrowth.textContent][currentLVL]);
+    //IN
+    const currentIN = parseInt(document.getElementById('monster-current-IN-input').value);
+    const projectedIN = document.getElementById('monster-projected-IN');
+    projectedIN.textContent = parseInt(monsterStatCalcData[monsterINGrowth.textContent][projectedLVL] + currentIN - monsterStatCalcData[monsterINGrowth.textContent][currentLVL]);
   }
 
 searchButton.addEventListener('click', event => { 
