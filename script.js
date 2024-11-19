@@ -23,44 +23,95 @@ fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/83e6c36a9773fae21
   .then(response => response.json())
   .then(data => {
     monsterData = data;
+    searchValue.addEventListener('input', handleSuggestions)
   })
   .catch(error => console.error('Error fetching Monster data:', error));
 
-function searchMonster() {
-  const searchValue = document.getElementById('monster-search').value.trim().toLowerCase();
 
-  // Attempted suggestions help with ChatGPT
-  const suggestionsContainer = document.getElementById('suggestions');
+// Attempted suggestions help with ChatGPT
+const suggestionsContainer = document.getElementById('suggestions');
 
-  suggestionsContainer.innerHTML = '';
+let suggestionHighlightIndex = -1;
 
-  const matches = monsterData.filter(monster =>
-    monster.name.toLowerCase().includes(searchValue)
-  );
+function handleSuggestions(){
+suggestionsContainer.innerHTML = '';
+suggestionHighlightIndex = -1;
 
-  matches.forEach(monster => {
-    const suggestion = document.createElement('div');
-    suggestion.classList.add('suggestion-item');
-    suggestion.textContent = monster.name;
-    suggestion.addEventListener('click', () => {
-      document.getElementById('search-input').value = monster.name;
-      suggestionsContainer.innerHTML = ''; // Clear suggestions on selection
-      // Add additional functionality here if you want to automatically search on selection
-    });
-    suggestionsContainer.appendChild(suggestion);
-  });
+const matches = monsterData.filter(monster =>
+  monster.name.toLowerCase().includes(searchValue.value.toLowerCase())
+);
 
-  if (matches.length === 0) {
-    const noMatch = document.createElement('div');
-    noMatch.classList.add('no-match');
-    noMatch.textContent = 'No matches found';
-    suggestionsContainer.appendChild(noMatch);
+matches.forEach(monster => {
+  const suggestion = document.createElement('div');
+  suggestion.classList.add('suggestion-item');
+  suggestion.textContent = monster.name;
+  suggestion.onclick = () => {
+    searchValue.value = monster.name;
+    suggestionsContainer.innerHTML = ''; 
+    searchMonster();// Clear suggestions on selection
+    // Add additional functionality here if you want to automatically search on selection
+  };
+  suggestionsContainer.appendChild(suggestion);
+});
+
+if (matches.length === 0) {
+  const noMatch = document.createElement('div');
+  noMatch.classList.add('no-match');
+  noMatch.textContent = 'No matches found';
+  suggestionsContainer.appendChild(noMatch);
+}
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'ArrowDown') {
+    navigateSuggestions(1); // Move focus down
+  } else if (event.key === 'ArrowUp') {
+    navigateSuggestions(-1); // Move focus up
+  } else if (event.key === 'Enter') {
+    selectSuggestion(); // Select the focused suggestion
   }
-  // Attempted suggestions help with ChatGPT *end
+});
+};
+
+function navigateSuggestions(direction) {
+  const suggestions = suggestionsContainer.querySelectorAll('.suggestion-item');
+
+  // Remove highlight from the current suggestion
+  if (suggestionHighlightIndex >= 0) {
+    suggestions[suggestionHighlightIndex].classList.remove('highlight');
+  }
+
+  // Update suggestionHighlightIndex based on direction
+  suggestionHighlightIndex += direction;
+
+  // Loop around if out of bounds
+  if (suggestionHighlightIndex >= suggestions.length) suggestionHighlightIndex = 0;
+  if (suggestionHighlightIndex < 0) suggestionHighlightIndex = suggestions.length - 1;
+
+  // Highlight the new suggestion
+  if (suggestions[suggestionHighlightIndex]) {
+    suggestions[suggestionHighlightIndex].classList.add('highlight');
+    // Scroll into view if needed
+    suggestions[suggestionHighlightIndex].scrollIntoView({ block: 'nearest' });
+  }
+}
+
+function selectSuggestion() {
+  const suggestions = suggestionsContainer.querySelectorAll('.suggestion-item');
+  if (suggestionHighlightIndex >= 0 && suggestions[suggestionHighlightIndex]) {
+    // Simulate clicking the suggestion
+    suggestions[suggestionHighlightIndex].click();
+  }
+}
+// Attempted suggestions help with ChatGPT *end
+
+function searchMonster(name) {
+  const searchName = name || searchValue.value.trim().toLowerCase();
+
+  
 
 
   // Search for the monster by name
-  const findMonster = monsterData.find(p => p.name.toLowerCase() === searchValue);
+  const findMonster = monsterData.find(p => p.name.toLowerCase() === searchName);
 
   if(findMonster) {
     // Populate the DOM elements with the monster data
@@ -82,6 +133,8 @@ function searchMonster() {
     testDiv.textContent = "Monster not found!";
   }
 }
+
+
 
 const getProjectedStats = () => {
   
