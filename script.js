@@ -11,9 +11,9 @@ const monsterINGrowth = document.getElementById('monster-in-out');
 const monsterSkillList = document.getElementById('monster-skill-list');
 const searchButton = document.getElementById('monster-search-button');
 const testDiv = document.getElementById('test-div');
-const searchValue = document.getElementById('monster-search');
+const monsterSearchValue = document.getElementById('monster-search');
 const projectButton = document.getElementById('monster-project-stats-button');
-
+const monsterPortrait = document.getElementById('monster-portrait-index');
 
 let monsterData = []; 
 
@@ -23,89 +23,102 @@ fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/83e6c36a9773fae21
   .then(response => response.json())
   .then(data => {
     monsterData = data;
-    searchValue.addEventListener('input', handleSuggestions)
+    monsterSearchValue.addEventListener('input', handleSuggestions)
   })
   .catch(error => console.error('Error fetching Monster data:', error));
 
 
 // Attempted suggestions help with ChatGPT
 const suggestionsContainer = document.getElementById('suggestions');
-
+const searchValue = document.getElementById('monster-search'); // Replace with your search input element ID
 let suggestionHighlightIndex = -1;
 
-function handleSuggestions(){
-suggestionsContainer.innerHTML = '';
-suggestionHighlightIndex = -1;
+// Handle displaying suggestions
+function handleSuggestions() {
+  suggestionsContainer.innerHTML = '';
+  suggestionHighlightIndex = -1;
 
-const matches = monsterData.filter(monster =>
-  monster.name.toLowerCase().includes(searchValue.value.toLowerCase())
-);
+  const matches = monsterData.filter(monster =>
+    monster.name.toLowerCase().includes(searchValue.value.toLowerCase())
+  );
 
-matches.forEach(monster => {
-  const suggestion = document.createElement('div');
-  suggestion.classList.add('suggestion-item');
-  suggestion.textContent = monster.name;
-  suggestion.onclick = () => {
-    searchValue.value = monster.name;
-    suggestionsContainer.innerHTML = ''; 
-    searchMonster();// Clear suggestions on selection
-    // Add additional functionality here if you want to automatically search on selection
-  };
-  suggestionsContainer.appendChild(suggestion);
-});
+  matches.forEach(monster => {
+    const suggestion = document.createElement('div');
+    suggestion.classList.add('suggestion-item');
+    suggestion.textContent = monster.name;
 
-if (matches.length === 0) {
-  const noMatch = document.createElement('div');
-  noMatch.classList.add('no-match');
-  noMatch.textContent = 'No matches found';
-  suggestionsContainer.appendChild(noMatch);
+    // On click, populate the search input and clear suggestions
+    suggestion.onclick = () => {
+      searchValue.value = monster.name;
+      suggestionsContainer.innerHTML = ''; 
+      searchMonster(); // Trigger search function
+    };
+
+    suggestionsContainer.appendChild(suggestion);
+  });
+
+  if (matches.length === 0) {
+    const noMatch = document.createElement('div');
+    noMatch.classList.add('no-match');
+    noMatch.textContent = 'No matches found';
+    suggestionsContainer.appendChild(noMatch);
+  }
 }
 
+// Handle navigation of suggestions
 document.addEventListener('keydown', event => {
-  if (event.key === 'ArrowDown') {
-    navigateSuggestions(1); // Move focus down
-  } else if (event.key === 'ArrowUp') {
-    navigateSuggestions(-1); // Move focus up
-  } else if (event.key === 'Enter') {
-    selectSuggestion(); // Select the focused suggestion
-  }
-});
-};
-
-function navigateSuggestions(direction) {
   const suggestions = suggestionsContainer.querySelectorAll('.suggestion-item');
 
+  if (event.key === 'ArrowDown') {
+    navigateSuggestions(1, suggestions);
+    console.log(`Arrowdown pressed, suggestionHighlightIndex ${suggestionHighlightIndex}`)
+  } else if (event.key === 'ArrowUp') {
+    navigateSuggestions(-1, suggestions);
+    console.log(`Arrowup pressed, suggestionHighlightIndex ${suggestionHighlightIndex}`)
+  } else if (event.key === 'Enter') {
+    if (suggestionHighlightIndex >= 0 && suggestionHighlightIndex < suggestions.length) {
+      const highlightedMonsterName = suggestions[suggestionHighlightIndex].textContent;
+      searchValue.value = highlightedMonsterName;
+      suggestionsContainer.innerHTML = '';
+      searchMonster(highlightedMonsterName);
+    } else {
+      console.error('Invalid suggestionHighlightIndex:', suggestionHighlightIndex);
+    } 
+    }
+  }
+);
+
+function navigateSuggestions(direction, suggestions) {
   // Remove highlight from the current suggestion
-  if (suggestionHighlightIndex >= 0) {
+  if (suggestionHighlightIndex >= 0 && suggestions[suggestionHighlightIndex]) {
     suggestions[suggestionHighlightIndex].classList.remove('highlight');
   }
 
-  // Update suggestionHighlightIndex based on direction
+  // Update suggestionHighlightIndex
   suggestionHighlightIndex += direction;
 
-  // Loop around if out of bounds
+  // Loop back or forward if out of bounds
   if (suggestionHighlightIndex >= suggestions.length) suggestionHighlightIndex = 0;
   if (suggestionHighlightIndex < 0) suggestionHighlightIndex = suggestions.length - 1;
 
-  // Highlight the new suggestion
+  // Highlight the new suggestion if it exists
   if (suggestions[suggestionHighlightIndex]) {
     suggestions[suggestionHighlightIndex].classList.add('highlight');
-    // Scroll into view if needed
     suggestions[suggestionHighlightIndex].scrollIntoView({ block: 'nearest' });
   }
 }
 
-function selectSuggestion() {
-  const suggestions = suggestionsContainer.querySelectorAll('.suggestion-item');
+function selectSuggestion(suggestions) {
   if (suggestionHighlightIndex >= 0 && suggestions[suggestionHighlightIndex]) {
-    // Simulate clicking the suggestion
-    suggestions[suggestionHighlightIndex].click();
+    suggestions[suggestionHighlightIndex].click(); // Simulate clicking the highlighted suggestion
   }
 }
 // Attempted suggestions help with ChatGPT *end
 
 function searchMonster(name) {
-  const searchName = name || searchValue.value.trim().toLowerCase();
+  const searchName = name || monsterSearchValue.value.trim().toLowerCase();
+  suggestionsContainer.innerHTML = ''; // Clear suggestions
+  suggestionHighlightIndex = -1;
 
   
 
@@ -128,11 +141,15 @@ function searchMonster(name) {
 
     // Display monster skills
     monsterSkillList.textContent = `Skills: ${findMonster.skills.join(', ')}`;
-    testDiv.textContent = "";
+    const portraitUrl = `https://github.com/kwolfer2/DWMsprites/blob/main/${findMonster.family.toLowerCase()}/${findMonster.name.toLowerCase()}.png?raw=true`;
+    monsterPortrait.innerHTML = `<img src="${portraitUrl}" alt="${findMonster.name} Portrait" />`;
+    console.log(portraitUrl);
   } else {
-    testDiv.textContent = "Monster not found!";
+    console.log('Monster not found:', searchName);
+    monsterPortrait.innerHTML = ""; // Clear portrait if no monster is found
   }
 }
+
 
 
 
@@ -183,19 +200,16 @@ fetch('https://raw.githubusercontent.com/kwolfer2/Javascript-Projects/refs/heads
   }
 
 searchButton.addEventListener('click', event => { 
-  testDiv.textContent = `'button has been pressed'`;
   event.preventDefault();
   searchMonster();
 });
-searchValue.addEventListener('keydown', event => {
+monsterSearchValue.addEventListener('keydown', event => {
   if (event.key === 'Enter') {  // Check if the Enter key was pressed
-    testDiv.textContent = `'Enter key has been pressed'`;
     event.preventDefault();
     searchMonster();
   }
 });
 projectButton.addEventListener('click', event => {
-  testDiv.textContent = `'project stats button has been pressed'`;
   event.preventDefault();
   projectStats();
 });
