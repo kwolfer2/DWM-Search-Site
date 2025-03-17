@@ -35,7 +35,7 @@ function searchMonster(name) {
 
   // Populate monster details
   breedingMonsterName.textContent = targetMonster.name;
-  const imageUrl = `/Images/Monster_pics_by_family/${findMonster.family}/${findMonster.name}.png`;
+  const imageUrl = `/Images/Monster_pics_by_family/${findMonster.family.toLowerCase()}/${findMonster.name.toLowerCase()}.png`;
   searchedMonsterImage.src = imageUrl;
   searchedMonsterImage.alt = `${targetMonster.name} image`;
 }

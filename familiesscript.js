@@ -82,7 +82,7 @@ fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/refs/heads/main/m
 
       const portraitElement = document.querySelector('#monster-portrait img');
     if (portraitElement) {
-      const monsterImage = `/Images/Monster_pics_by_family/${findMonster.family}/${findMonster.name}.png`;
+      const monsterImage = `/Images/Monster_pics_by_family/${findMonster.family.toLowerCase()}/${findMonster.name.toLowerCase()}.png`;
       console.log('searched for', monsterImage);
       portraitElement.src = monsterImage;
       portraitElement.alt = `${findMonster.name} portrait`;
