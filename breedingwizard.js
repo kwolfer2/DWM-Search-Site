@@ -35,7 +35,7 @@ function searchMonster(name) {
 
   // Populate monster details
   breedingMonsterName.textContent = targetMonster.name;
-  const imageUrl = `https://github.com/kwolfer2/DWMsprites/blob/main/${targetMonster.family.toLowerCase()}/${targetMonster.name.toLowerCase()}.png?raw=true`;
+  const imageUrl = `/Images/Monster_pics_by_family/${findMonster.family}/${findMonster.name}.png`;
   searchedMonsterImage.src = imageUrl;
   searchedMonsterImage.alt = `${targetMonster.name} image`;
 }
