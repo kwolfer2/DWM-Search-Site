@@ -120,6 +120,8 @@ fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/83e6c36a9773fae21
         event.preventDefault();
         if (suggestionHighlightIndex >= 0 && currentSuggestions.length > 0) {
           selectSuggestion(suggestionHighlightIndex);
+          searchMonster();
+
         } else {
           searchMonster(); // fallback to search by typed value
         }
@@ -146,8 +148,8 @@ function searchMonster(name) {
 
   if(findMonster) {
     // Populate the DOM elements with the monster data
-    monsterName.textContent = findMonster.name;
-    monsterFamily.textContent = findMonster.family;
+    monsterName.textContent = `Name: ${findMonster.name}`;
+    monsterFamily.textContent = `Family: ${findMonster.family}`;
     monsterMax.textContent = findMonster.ML;
     monsterEXP.textContent = findMonster.EP;
     monsterHPGrowth.textContent = findMonster.HP;
@@ -160,7 +162,7 @@ function searchMonster(name) {
     // Display monster skills
     monsterSkillList.textContent = `Skills: ${findMonster.skills.join(', ')}`;
     const portraitUrl = `https://github.com/kwolfer2/DWMsprites/blob/main/${findMonster.family.toLowerCase()}/${findMonster.name.toLowerCase()}.png?raw=true`;
-    monsterPortrait.innerHTML = `<img src="${portraitUrl}" alt="${findMonster.name} Portrait" />`;
+    monsterPortrait.innerHTML = `<img src="${portraitUrl}" alt="${findMonster.name} Portrait" class="w-12 sm:w-16 md:w-24 lg:w-32 xl:w-40"/>`;
     console.log(portraitUrl);
   } else {
     console.log('Monster not found:', searchName);

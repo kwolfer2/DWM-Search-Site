@@ -5,21 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Dragon Quest Monsters </title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   </head>
-    <body>
-        <div class="sidebar">
-            <h2>DWM
-                <br>
-                <img src="https://tcrf.net/images/8/8a/DWM-intro.png"></img>
-            </h2>
-            <ul>
-              <li><a href="index.html">Monster Search</a></li>
-              <li><a href="breedingwizard.html">Breeding Wizard (WIP)</a></li>
-              <li><a href="families.html">Families</a></li>
-              <li><a href="abilities.html">Abilities</a></li>
-              <li><a href="info.html">What is this?</a></li>
-            </ul>
-          </div>
+    <body class="min-h-screen bg-gray-100 m-0 p-0">
+        <!-- Sidebar-->
+    <div class="w-[200px] bg-gray-800 text-white h-screen p-1 fixed top-0 left-0">
+      <h2 class="text-center">DWM
+        <br>
+        <img src="https://tcrf.net/images/8/8a/DWM-intro.png" class="w-full h-auto rounded my-2"></img>
+      </h2>
+      <ul class="space-y-4">
+        <li><a
+            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
+            href="monsterSearchTW.html">Monster Search</a></li>
+        <li><a
+            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
+            href="breedingwizard.html">Breeding Wizard (WIP)</a></li>
+        <li><a
+            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
+            href="families.html">Families</a></li>
+        <li><a
+            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
+            href="abilities.html">Abilities</a></li>
+        <li><a
+            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
+            href="info.html">What is this?</a></li>
+      </ul>
+    </div>
+    <!-- Main Content-->
         
           <div class="main-content">
             <h1>Skills Table</h1>
@@ -37,4 +50,5 @@
             </div>
     </body>
     <script src="abilities.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </html>
