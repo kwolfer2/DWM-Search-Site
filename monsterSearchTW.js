@@ -229,8 +229,8 @@ searchButton.addEventListener('click', event => {
 // });
 projectButton.addEventListener('click', event => {
   event.preventDefault();
+  console.log('CalcStats test');
+  console.log(monsterStatCalcData);
+
   projectStats();
 });
-
-console.log('CalcStats test');
-console.log(monsterStatCalcData);

@@ -41,11 +41,14 @@
       <!-- Top 30% div Monster Search-->
       <div class="h-[30%] flex-col items-center justify-center bg-blue-300 shadow">
         <div class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg h-full">
-          <div for="search-wrapper" class="text-3xl items-center font-[Nunito] font-bold text-center justify-center text-blue-700 mt-5">Monster Search</div>
+          <div for="search-wrapper"
+            class="text-3xl items-center font-[Nunito] font-bold text-center justify-center text-blue-700 mt-5">Monster
+            Search</div>
           <div class="flex items-center space-x-2">
             <input type='search' id="monster-search" placeholder="Search for a Monster!"
-            class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-5" />
-            <button type="button" id="monster-search-button" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mt-5 justify-center">Search</button>
+              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-5" />
+            <button type="button" id="monster-search-button"
+              class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mt-5 justify-center">Search</button>
           </div>
           <div id="suggestions"></div>
           <div id="details-container"></div>
@@ -53,158 +56,167 @@
       </div>
       <!-- Bottom 70% div-->
       <div class='h-[70%] flex flex-row bg-gray-150 overflow-auto'>
-        <!-- Monster Stat + Portrait-->
-        <div id="monster-stat-info" class="w-1/2 flex flex-col items-center justify-center space-y-4">
-         <div id='monster-portrait-index'></div>
-          <div id='monster-name'>Monster Name</div>
-          <div id='monster-family'>Monster Family</div>
-          <table border='1'>
-            <tr>
-              <td>
-                <div id='monster-max-level'>Max Level</div>
-              </td>
-              <td>
-                <div id='monster-max-level-out'></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id='monster-experience'>EXP Growth</div>
-              </td>
-              <td>
-                <div id='monster-experience-out'></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id='monster-hp'>HP</div>
-              </td>
-              <td>
-                <div id='monster-hp-out'></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id='monster-mp'>MP</div>
-              </td>
-              <td>
-                <div id='monster-mp-out'></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id='monster-at'>AT</div>
-              </td>
-              <td>
-                <div id='monster-at-out'></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id='monster-df'>DF</div>
-              </td>
-              <td>
-                <div id='monster-df-out'></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id='monster-ag'>AG</div>
-              </td>
-              <td>
-                <div id='monster-ag-out'></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id='monster-in'>IN</div>
-              </td>
-              <td>
-                <div id='monster-in-out'></div>
-              </td>
-            </tr>
-          </table>
-          <div id="monster-skill-list">Skills: </div> 
-        </div>
-        <!-- Monster Stat Projection input + output-->
-        <div class="w-1/2 flex items-center justify-center p-4 overflow-auto">
-          <div class='monster-stats-info'>
-            <div class="text-lg font-bold flex items-center justify-center">Enter Current Stats</div>
-            <div id='monster-portrait'></div>
-            <table class="w-full border border-gray-300 rounded-lg text-base" border='1'>
+        <!-- 60% Width Container-->
+        <div class="w-[110%] flex flex-row mr-[10%]">
+
+
+          <!-- Monster Stat-->
+          <div id="monster-stat-info" class="w-1/4 flex flex-col items-center justify-center space-y-4">
+            <table border='1'>
               <tr>
                 <td>
-                  <div id='monster-current-level'>Current Level</div>
+                  <div id='monster-max-level'>Max Level</div>
                 </td>
                 <td>
-                  <input id="monster-current-level-input"></input>
+                  <div id='monster-max-level-out'></div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div id='monster-current-HP'>Current HP</div>
+                  <div id='monster-experience'>EXP Growth</div>
                 </td>
                 <td>
-                  <input id="monster-current-HP-input"></input>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id='monster-current-MP'>Current MP</div>
-                </td>
-                <td>
-                  <input id="monster-current-MP-input"></input>
+                  <div id='monster-experience-out'></div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div id='monster-current-AT'>Current AT</div>
+                  <div id='monster-hp'>HP</div>
                 </td>
                 <td>
-                  <input id="monster-current-AT-input"></input>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id='monster-current-DF'>Current DF</div>
-                </td>
-                <td>
-                  <input id="monster-current-DF-input"></input>
+                  <div id='monster-hp-out'></div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div id='monster-current-AG'>Current AG</div>
+                  <div id='monster-mp'>MP</div>
                 </td>
                 <td>
-                  <input id="monster-current-AG-input"></input>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div id='monster-current-IN'>Current IN</div>
-                </td>
-                <td>
-                  <input id="monster-current-IN-input"></input>
+                  <div id='monster-mp-out'></div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div id='monster-projected-level'>Future level</div>
+                  <div id='monster-at'>AT</div>
                 </td>
                 <td>
-                  <input id="monster-projected-level-input"></input>
+                  <div id='monster-at-out'></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id='monster-df'>DF</div>
+                </td>
+                <td>
+                  <div id='monster-df-out'></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id='monster-ag'>AG</div>
+                </td>
+                <td>
+                  <div id='monster-ag-out'></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id='monster-in'>IN</div>
+                </td>
+                <td>
+                  <div id='monster-in-out'></div>
                 </td>
               </tr>
             </table>
-            <div id="project-stats-button-container" class="flex justify-center mt-2">
-              <button type="button" class="text-lg font-bold bg-blue-600 hover:bg-blue-700 text-white px-4 rounded">Project Stats</button>
+            <div id="monster-skill-list">Skills: </div>
+          </div>
+          <!--Monster Portrait and Name-->
+          <div id="portrait-and-name" class="w-1/4 flex flex-col items-center justify-center space-y-4">
+
+            <div id='monster-portrait-index'></div>
+            <div id='monster-name'>Monster Name</div>
+            <div id='monster-family'>Monster Family</div>
+          </div>
+          <!-- Monster Stat Projection input-->
+          <div class="w-1/4 flex items-center justify-center p-4 overflow-auto">
+            <div class='monster-stats-info'>
+              <div class="text-lg font-bold flex items-center justify-center">Enter Current Stats</div>
+              <div id='monster-portrait'></div>
+              <table class="w-full border border-gray-300 rounded-lg text-base" border='1'>
+                <tr>
+                  <td>
+                    <div id='monster-current-level'>Level</div>
+                  </td>
+                  <td>
+                    <input id="monster-current-level-input"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id='monster-current-HP'>HP</div>
+                  </td>
+                  <td>
+                    <input id="monster-current-HP-input"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id='monster-current-MP'>MP</div>
+                  </td>
+                  <td>
+                    <input id="monster-current-MP-input"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id='monster-current-AT'>AT</div>
+                  </td>
+                  <td>
+                    <input id="monster-current-AT-input"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id='monster-current-DF'>DF</div>
+                  </td>
+                  <td>
+                    <input id="monster-current-DF-input"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id='monster-current-AG'>AG</div>
+                  </td>
+                  <td>
+                    <input id="monster-current-AG-input"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id='monster-current-IN'>IN</div>
+                  </td>
+                  <td>
+                    <input id="monster-current-IN-input"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div id='monster-projected-level'>Future level</div>
+                  </td>
+                  <td>
+                    <input id="monster-projected-level-input"></input>
+                  </td>
+                </tr>
+              </table>
+              <div id="project-stats-button-container" class="flex justify-center mt-2">
+                <button type="button" id="monster-project-stats-button"
+                  class="text-lg font-bold bg-blue-600 hover:bg-blue-700 text-white px-4 rounded">Project Stats</button>
+              </div>
             </div>
-            <!-- 
-              
-            Projected Values Table
-            
-            -->
+            <br>
+          </div>
+          <!-- Monster Stat Projection output-->
+           <div class="w-1/4 flex items-center justify-center p-4 overflow-auto">
             <table class="w-full border border-gray-300 rounded-lg text-base mt-2" border='1'>
 
               <tr>
@@ -256,11 +268,8 @@
                 </td>
               </tr>
             </table>
-
-          </div>
-          <br>
+           </div>
         </div>
-
       </div>
     </div>
 
