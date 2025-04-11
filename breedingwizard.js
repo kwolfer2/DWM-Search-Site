@@ -26,6 +26,8 @@ fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/refs/heads/main/m
 function searchMonster(name) {
   const targetName = name.trim().toLowerCase();
   const targetMonster = monsterData.find(monster => monster.name.toLowerCase() === targetName);
+  console.log(targetMonster);
+  console.log(targetMonster.family);
 
   if (!targetMonster) {
     console.error(`Monster "${name}" not found.`);
@@ -35,7 +37,7 @@ function searchMonster(name) {
 
   // Populate monster details
   breedingMonsterName.textContent = targetMonster.name;
-  const imageUrl = `/Images/Monster_pics_by_family/${findMonster.family.toLowerCase()}/${findMonster.name.toLowerCase()}.png`;
+  const imageUrl = `/Images/Monster_pics_by_family/${targetMonster.family.toLowerCase()}/${targetMonster.name.toLowerCase()}.png`;
   searchedMonsterImage.src = imageUrl;
   searchedMonsterImage.alt = `${targetMonster.name} image`;
 }
