@@ -33,60 +33,49 @@
   </ul>
 </div>
 <!-- Main Content-->
+    <main class="flex-1 grid grid-rows-3 gap-4 p-4">
+      <!-- Search + Info-->
+       <div class="grid grid-cols-2 gap-4">
 
-    <div class="main-content">
-      <div class="search-bar">
-        <input type="text" id="monster-search" placeholder="Search for a monster...">
-        <button id="search-button">Search</button>
-      </div>
-      </div>
+         <div class="bg-white rounded-x1 shadow p-4">
+           <input type="text" id="monster-search" placeholder="Search for a monster...">
+           <button id="search-button">Search</button>
+          </div>
+          <div class="bg-white rounded-xl shadow p-4 flex items-center space-x-4">
+            <h3>Searched Monster</h3>
+            <img id="searched-monster-img" src="#" alt="Monster Portrait" />
+            <div id="searched-monster-name">Monster Name: </div>
+            <div id="searched-monster-family">Family: </div>
+          </div>
 
-      <div class="family-tree">
-        <div class="tree-box">
+        </div>
+      <!-- Parent Info-->
+      <div class="grid grid-cols-2 gap-4">
+        <!--Pedigree-->
+        <div class="bg-white rounded-x1 shadow p-4">
           <h3>Pedigree</h3>
-          
           <ul id="pedigree-list"></ul>
         </div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div class="tree-box">
-          <h3>Searched Monster</h3>
-          <img id="searched-monster-img" src="#" alt="Monster Portrait" />
-          <p id="searched-monster-name">Monster Name</p>
-        </div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div class="tree-box">
+        <!-- Secondary-->
+        <div class="bg-white rounded-x1 shadow p-4">
           <h3>Secondary</h3>
-          
           <ul id="secondary-list"></ul>
         </div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        <div class="tree-box">
+      </div>
+        <!--  Offspring + Mates -->
+        <div class="grid grid-cols-2 gap-4">
+          <!-- Offspring -->
+        <div class="bg-white rounded-x1 shadow p-4">
           <h3>Potential Offspring</h3>
-          
           <ul id="offspring-list"></ul>
         </div>
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-        
-        <div class="tree-box">
+        <!-- Mate -->
+        <div class="bg-white rounded-x1 shadow p-4">
           <h3>Breeding Partners</h3>
-          
-          <ul id="partners-list"></ul>
+           <ul id="partners-list"></ul>
         </div>
-        
-        <div id="tree-box"></div>
-        <div id="tree-box"></div>
-
-      </div>
     </div>
+</main>
   </body>
   <script src="breedingwizard.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
