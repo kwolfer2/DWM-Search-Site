@@ -5,6 +5,7 @@ const searchButton = document.getElementById('search-button');
 const pedigreeList = document.getElementById('pedigree-list');
 const searchedMonsterImage = document.getElementById('searched-monster-img');
 const breedingMonsterName = document.getElementById('searched-monster-name');
+const breedingMonsterFamily = document.getElementById('searched-monster-family');
 const secondaryList = document.getElementById('secondary-list');
 const offspringList = document.getElementById('offspring-list');
 const partnersList = document.getElementById('partners-list');
@@ -36,7 +37,8 @@ function searchMonster(name) {
   }
 
   // Populate monster details
-  breedingMonsterName.textContent = targetMonster.name;
+  breedingMonsterName.textContent = `Monster: ${targetMonster.name}`;
+  breedingMonsterFamily.textContent = `Family: ${targetMonster.family}`;
   const imageUrl = `/Images/Monster_pics_by_family/${targetMonster.family.toLowerCase()}/${targetMonster.name.toLowerCase()}.png`;
   searchedMonsterImage.src = imageUrl;
   searchedMonsterImage.alt = `${targetMonster.name} image`;

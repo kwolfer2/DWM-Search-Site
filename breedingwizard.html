@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragon Quest Monsters - Breeding Wizard</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="min-h-screen bg-gray-100 m-0 p-0 font-[Nunito] text-lg">
+    <div class="flex flex-row w-full h-screen">
 <!-- Sidebar-->
 <div class="w-[200px] bg-gray-800 text-white h-screen p-1">
   <h2 class="text-center">DWM
@@ -37,27 +38,31 @@
       <!-- Search + Info-->
        <div class="grid grid-cols-2 gap-4">
 
-         <div class="bg-white rounded-x1 shadow p-4">
-           <input type="text" id="monster-search" placeholder="Search for a monster...">
-           <button id="search-button">Search</button>
+         <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
+           <input type="text" id="monster-search" class="border rounded h-1/4 text-2xl" placeholder="Search for a monster...">
+           <button id="search-button" class="bg-blue-600 hover:bg-blue-700 font-[Nunito] text-white py-2 px-4 rounded mt-5">Search</button>
           </div>
-          <div class="bg-white rounded-xl shadow p-4 flex items-center space-x-4">
-            <h3>Searched Monster</h3>
-            <img id="searched-monster-img" src="#" alt="Monster Portrait" />
-            <div id="searched-monster-name">Monster Name: </div>
-            <div id="searched-monster-family">Family: </div>
+          <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
+            <!-- <h3>Searched Monster</h3> -->
+             <div class="h-1/2 flex items-center justify-center">
+               <img id="searched-monster-img" src="#" alt="Monster Portrait" />
+              </div>
+              <div class="h-1/2 flex flex-col items-center justify-center">
+                <div id="searched-monster-name">Monster Name: </div>
+                <div id="searched-monster-family">Family: </div>
+              </div>
           </div>
 
         </div>
       <!-- Parent Info-->
       <div class="grid grid-cols-2 gap-4">
         <!--Pedigree-->
-        <div class="bg-white rounded-x1 shadow p-4">
+        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
           <h3>Pedigree</h3>
           <ul id="pedigree-list"></ul>
         </div>
         <!-- Secondary-->
-        <div class="bg-white rounded-x1 shadow p-4">
+        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
           <h3>Secondary</h3>
           <ul id="secondary-list"></ul>
         </div>
@@ -65,17 +70,18 @@
         <!--  Offspring + Mates -->
         <div class="grid grid-cols-2 gap-4">
           <!-- Offspring -->
-        <div class="bg-white rounded-x1 shadow p-4">
+        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
           <h3>Potential Offspring</h3>
           <ul id="offspring-list"></ul>
         </div>
         <!-- Mate -->
-        <div class="bg-white rounded-x1 shadow p-4">
+        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
           <h3>Breeding Partners</h3>
            <ul id="partners-list"></ul>
         </div>
     </div>
 </main>
+</div>
   </body>
   <script src="breedingwizard.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
