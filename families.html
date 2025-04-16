@@ -13,13 +13,13 @@
     <!-- Main Content-->
         
           <div class="main-content">
-            <div class='ml-[200px] monster-stats-info-top-bar text-sm lg:text-base xl:text-xl'>
+            <div class='ml-[200px] monster-stats-info-top-bar grid grid-cols-2 lg:flex flex-wrap lg-flex:nowrap min-w-[600px] overflow-x-auto h-auto xl:h-[150px] text-sm lg:text-base justify-center items-center'>
               
                 <div class="families-search-container">
 
 
                   <label for="search-wrapper" class="big-title">Monster Search</label>
-                  <input type='search' id="families-search" placeholder="Search for a Monster!" />
+                  <input type='search' id="families-search" autocomplete="off" placeholder="Search for a Monster!" />
                  <!--  <div id="suggestions"></div>
           <div id="details-container"></div> -->
                   <button type="button" id="families-search-button">Search</button>
@@ -32,7 +32,8 @@
                 <div id='monster-name'>Monster Name</div>
                 <div id='monster-family'>Monster Family</div>
               </div>
-              <table id="families-stat-table" class="text-center min-w-[400px]" border="1">
+              <div id="families-monster-skill-list" class="flex flex-col text-center items-center">Skills: </div>
+              <table id="families-stat-table" class="text-center text-sm min-w-[400px] max-w-[600px]" border="1">
                 <thead>
                   <tr>
                     <th>Max Level</th>
@@ -58,124 +59,123 @@
                   </tr>
                 </tbody>
               </table>
-              
-              <div id="families-monster-skill-list">Skills: </div>
             </div>
-              <div class="family-wrapper ml-[200px] w-[calc(100%-200px)] flex flex-wrap justify-center gap-8 p-6 mt-[150px] text-sm md:text-xl xl:text-base">
-
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+              
+              <div class="family-wrapper ml-[200px] w-[calc(100%-200px)] flex flex-wrap justify-center gap-8 p-6 mt-[180px] text-sm md:text-xl xl:text-base">
+                
+                <div class="monster-family flex-1 min-w-[350px] max-w-[450px]">
                   <div class="family-title">Slime</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/drakslimesprite.png">
-                    DrakSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/spotslimesprite.png">SpotSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/wingslimesprite.png">WingSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/treeslimesprite.png">TreeSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/snailysprite.png">Snaily</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slimenitesprite.png">SlimeNite</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/babblesprite.png">Babble</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/boxslimesprite.png">BoxSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slimesprite.png">Slime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/healersprite.png">Healer</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/fangslimesprite.png">FangSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/rockslimesprite.png">RockSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slimeborgsprite.png">SlimeBorg</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slabbitsprite.png">Slabbit</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/spotkingsprite.png">SpotKing</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/kingslimesprite.png">KingSlime</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/metalysprite.png">Metaly</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/metabblesprite.png">Metabble</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/metalkingsprite.png">MetalKing</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/goldslimesprite.png">GoldSlime</div>
-                  </div>
-                  
-                </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
-                <div class="family-title">Dragon</div>
-                <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/dragonkidsprite.png">Dragonkid</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/tortragonsprite.png">Tortragon</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/pteranodsprite.png">Pteranod</div>
-                    <div class="monster-selection">
+                      DrakSlime</div>
+                      <div class="monster-selection">
+                        <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/spotslimesprite.png">SpotSlime</div>
+                        <div class="monster-selection">
+                          <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/wingslimesprite.png">WingSlime</div>
+                          <div class="monster-selection">
+                            <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/treeslimesprite.png">TreeSlime</div>
+                            <div class="monster-selection">
+                              <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/snailysprite.png">Snaily</div>
+                              <div class="monster-selection">
+                                <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slimenitesprite.png">SlimeNite</div>
+                                <div class="monster-selection">
+                                  <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/babblesprite.png">Babble</div>
+                                  <div class="monster-selection">
+                                    <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/boxslimesprite.png">BoxSlime</div>
+                                    <div class="monster-selection">
+                                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slimesprite.png">Slime</div>
+                                      <div class="monster-selection">
+                                        <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/healersprite.png">Healer</div>
+                                        <div class="monster-selection">
+                                          <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/fangslimesprite.png">FangSlime</div>
+                                          <div class="monster-selection">
+                                            <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/rockslimesprite.png">RockSlime</div>
+                                            <div class="monster-selection">
+                                              <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slimeborgsprite.png">SlimeBorg</div>
+                                              <div class="monster-selection">
+                                                <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/slabbitsprite.png">Slabbit</div>
+                                                <div class="monster-selection">
+                                                  <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/spotkingsprite.png">SpotKing</div>
+                                                  <div class="monster-selection">
+                                                    <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/kingslimesprite.png">KingSlime</div>
+                                                    <div class="monster-selection">
+                                                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/metalysprite.png">Metaly</div>
+                                                      <div class="monster-selection">
+                                                        <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/metabblesprite.png">Metabble</div>
+                                                        <div class="monster-selection">
+                                                          <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/metalkingsprite.png">MetalKing</div>
+                                                          <div class="monster-selection">
+                                                            <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/goldslimesprite.png">GoldSlime</div>
+                                                          </div>
+                                                          
+                                                        </div>
+                                                        <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                                                          <div class="family-title">Dragon</div>
+                                                          <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+                                                            <div class="monster-selection">
+                                                              <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/dragonkidsprite.png">Dragonkid</div>
+                                                              <div class="monster-selection">
+                                                                <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/tortragonsprite.png">Tortragon</div>
+                                                                <div class="monster-selection">
+                                                                  <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/pteranodsprite.png">Pteranod</div>
+                                                                  <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/gasgonsprite.png">Gasgon</div>        
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/fairydraksprite.png">FairyDrak</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/lizardmansprite.png">LizardMan</div> 
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/poisongonsprite.png">Poisongon</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/swordgonsprite.png">Swordgon</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/dragonsprite.png">Dragon</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/minidraksprite.png">MiniDrak</div>        
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/maddragonsprite.png">MadDragon</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/rayburnsprite.png">Rayburn</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/chamelgonsprite.png">Chamelgon</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/lizardflysprite.png">LizardFly</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/andrealsprite.png">Andreal</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/spikeroussprite.png">Spikerous</div>        
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/greatdraksprite.png">GreatDrak</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/crestpentsprite.png">Crestpent</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/wingsnakesprite.png">WingSnake</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/coatolsprite.png">Coatol</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/orochisprite.png">Orochi</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/battlerexsprite.png">BattleRex</div>        
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/skydragonsprite.png">SkyDragon</div>
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/divinegonsprite.png">Divinegon</div>
-                  </div>
-                </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
-                  <div class="family-title">Beast</div>
-                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/beast/tonguellasprite.png">Tonguella
-                    </div>
-                    
-                    <div class="monster-selection">
-                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/beast/almirajsprite.png">Almiraj
-                    </div>
-                    
-                    <div class="monster-selection">
+                      <div class="monster-selection">
+                        <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/lizardmansprite.png">LizardMan</div> 
+                        <div class="monster-selection">
+                          <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/poisongonsprite.png">Poisongon</div>
+                          <div class="monster-selection">
+                            <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/swordgonsprite.png">Swordgon</div>
+                            <div class="monster-selection">
+                              <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/dragonsprite.png">Dragon</div>
+                              <div class="monster-selection">
+                                <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/minidraksprite.png">MiniDrak</div>        
+                                <div class="monster-selection">
+                                  <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/maddragonsprite.png">MadDragon</div>
+                                  <div class="monster-selection">
+                                    <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/rayburnsprite.png">Rayburn</div>
+                                    <div class="monster-selection">
+                                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/chamelgonsprite.png">Chamelgon</div>
+                                      <div class="monster-selection">
+                                        <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/lizardflysprite.png">LizardFly</div>
+                                        <div class="monster-selection">
+                                          <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/andrealsprite.png">Andreal</div>
+                                          <div class="monster-selection">
+                                            <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/spikeroussprite.png">Spikerous</div>        
+                                            <div class="monster-selection">
+                                              <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/greatdraksprite.png">GreatDrak</div>
+                                              <div class="monster-selection">
+                                                <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/crestpentsprite.png">Crestpent</div>
+                                                <div class="monster-selection">
+                                                  <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/wingsnakesprite.png">WingSnake</div>
+                                                  <div class="monster-selection">
+                                                    <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/coatolsprite.png">Coatol</div>
+                                                    <div class="monster-selection">
+                                                      <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/orochisprite.png">Orochi</div>
+                                                      <div class="monster-selection">
+                                                        <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/battlerexsprite.png">BattleRex</div>        
+                                                        <div class="monster-selection">
+                                                          <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/skydragonsprite.png">SkyDragon</div>
+                                                          <div class="monster-selection">
+                                                            <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/divinegonsprite.png">Divinegon</div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                                                          <div class="family-title">Beast</div>
+                                                          <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+                                                            <div class="monster-selection">
+                                                              <img class="monster-sprite" src="/Images/Monster_pics_by_family/beast/tonguellasprite.png">Tonguella
+                                                            </div>
+                                                            
+                                                            <div class="monster-selection">
+                                                              <img class="monster-sprite" src="/Images/Monster_pics_by_family/beast/almirajsprite.png">Almiraj
+                                                            </div>
+                                                            
+                                                            <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/beast/catflysprite.png">Catfly
                     </div>
                     

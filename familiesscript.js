@@ -121,7 +121,7 @@ fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/refs/heads/main/m
    
     }
   }
-  // Add an event listener to the search input
+  // Hide monsters not qualified in searchInput
 searchInput.addEventListener('input', () => {
   const searchQuery = searchInput.value.toLowerCase();
   familyWrappers.forEach(familyWrapper => {

@@ -129,7 +129,7 @@
     flex: 0 0 25%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Vertically center the items */
+    align-items: left; /* Vertically center the items */
     justify-content: space-between;
     gap: 10px;
 
@@ -180,7 +180,7 @@
   .monster-stats-info-top-bar{
     margin-left: 200px;
     width: calc(100% - 200px);
-    height: 150px;
+    
     display: flex;
     background-color: #004d99;
     color: white;
@@ -190,7 +190,7 @@
     box-shadow: 0 2px 5pc rgba(0, 0, 0, 0.2);
     z-index: 1000;
     align-items: center;
-    position: fixed; /* Keep the sidebar fixed on the left */
+    position: fixed;
   }
   #monster-name, #monster-family {
     font-weight: bold;
@@ -231,7 +231,16 @@
 }
 
   #families-monster-info-container {
-    flex: 0 0 25%; /* Takes up 25% of the width */
+    flex: 0 0 20%; /* Takes up 25% of the width */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    /* align-items: center; Center-align the content */
+    gap: 10px;
+    text-align: center; /* Center text */
+    align-items: center;
+    height: 100%;
+  }
+  #families-monster-skill-list {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     /* align-items: center; Center-align the content */
@@ -242,17 +251,17 @@
   }
   #families-stat-table {
     flex: 1;
-    width: calc(100% - 200px); /* Make the table span the container width */
+    width: 75%; /* Make the table span the container width */
     border-collapse: collapse; /* Merge borders for a cleaner look */
     text-align: center; /* Center align text in cells */
     table-layout: fixed;
-    margin-top: 10px;
+    margin-top: 5px;
   }
   
  th, 
   #families-stat-table td {
-    width: 100%;
-    padding: 10px;
+    width: 75%;
+    padding: 2px;
     border: 1px solid #555; /* Define border styling */
   }
   #families-stat-table thead {
@@ -276,11 +285,11 @@
   }
 
   .family-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for families */
-    gap: 20px; /* Spacing between families */
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
     padding: 20px;
-    margin-top: 150px;
+    margin-top: 150px; */
   }
   
   /* Styling for each monster family */
