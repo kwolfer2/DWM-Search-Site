@@ -10,6 +10,13 @@ const secondaryList = document.getElementById('secondary-list');
 const offspringList = document.getElementById('offspring-list');
 const partnersList = document.getElementById('partners-list');
 
+// Generate Sidebar
+
+fetch('sidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('sidebar').innerHTML = html;});
+
 let monsterData = [];
 
 // Fetch monster data

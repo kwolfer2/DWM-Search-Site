@@ -17,6 +17,14 @@ const monsterPortrait = document.getElementById('monster-portrait-index');
 
 let monsterData = []; 
 
+// Generate Sidebar
+
+fetch('sidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('sidebar').innerHTML = html;});
+  
+
 
 // Use the correct GitHub raw link
 fetch('https://raw.githubusercontent.com/kwolfer2/monster-json/83e6c36a9773fae217f5aefb1842a74724e0f7dd/monsterData.json')
@@ -160,7 +168,12 @@ function searchMonster(name) {
     monsterINGrowth.textContent = findMonster.IN;
 
     // Display monster skills
-    monsterSkillList.textContent = `Skills: ${findMonster.skills.join(', ')}`;
+    monsterSkillList.innerHTML = '<strong>Skills: </strong>';
+    findMonster.skills.forEach(skill => {
+      const skillDiv = document.createElement('div');
+      skillDiv.textContent = skill;
+      monsterSkillList.appendChild(skillDiv);
+    });
     const portraitUrl = `https://github.com/kwolfer2/DWMsprites/blob/main/${findMonster.family.toLowerCase()}/${findMonster.name.toLowerCase()}.png?raw=true`;
     monsterPortrait.innerHTML = `<img src="${portraitUrl}" alt="${findMonster.name} Portrait" class="w-12 sm:w-16 md:w-24 lg:w-32 xl:w-40"/>`;
     console.log(portraitUrl);

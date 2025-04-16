@@ -17,7 +17,12 @@ const testDiv = document.getElementById('test-div');
 const projectButton = document.getElementById('monster-project-stats-button');
 let monsterData = []; 
 
+// Generate Sidebar
 
+fetch('sidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('sidebar').innerHTML = html;});
 
 function addClickListenersToMonsters() {
   const monsterSelections = document.querySelectorAll('.monster-selection');

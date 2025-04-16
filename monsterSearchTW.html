@@ -14,31 +14,9 @@
 <body class="min-h-screen bg-gray-100 m-0 p-0 text-lg font-[Nunito]">
   <div class="flex flex-row w-full h-screen">
     <!-- Sidebar-->
-    <div class="w-[200px] bg-gray-800 text-white h-screen p-1">
-      <h2 class="text-center">DWM
-        <br>
-        <img src="https://tcrf.net/images/8/8a/DWM-intro.png" class="w-full h-auto rounded my-2"></img>
-      </h2>
-      <ul class="space-y-4">
-        <li><a
-            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
-            href="monsterSearchTW.html">Monster Search</a></li>
-        <li><a
-            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
-            href="breedingwizard.html">Breeding Wizard</a></li>
-        <li><a
-            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
-            href="families.html">Families</a></li>
-        <li><a
-            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
-            href="abilities.html">Abilities</a></li>
-        <li><a
-            class="block w-[200px] text-center font-bold bg-gray-700 z-10 py-3 px-[3px] rounded-md hover:bg-gray-600 transition relative"
-            href="info.html">What is this?</a></li>
-      </ul>
-    </div>
+    <div id="sidebar"></div>
     <!-- Main Content-->
-    <div class="flex flex-col flex-grow h-screen">
+    <div class="ml-[200px] flex flex-col flex-grow h-screen">
       <!-- Top 30% div Monster Search-->
       <div class="h-[30%] flex-col items-center justify-center bg-blue-300 shadow">
         <div class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg h-full">
@@ -46,7 +24,7 @@
             class="text-3xl items-center font-[Nunito] font-extrabold text-center justify-center text-blue-700 mt-5">Monster
             Search</div>
           <div class="flex items-center space-x-2">
-            <input type='search' id="monster-search" placeholder="Search for a Monster!"
+            <input type='search' id="monster-search" autocomplete="off" placeholder="Search for a Monster!"
               class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-5" />
             <button type="button" id="monster-search-button"
               class="bg-blue-600 hover:bg-blue-700 text-white font-bold font-[Nunito]  py-2 px-4 rounded mt-5 justify-center">Search</button>
@@ -129,7 +107,7 @@
                 </td>
               </tr>
             </table>
-            <div id="monster-skill-list">Skills: </div>
+            <div class="flex flex-col items-center text-center" id="monster-skill-list"><strong>Skills: </strong></div>
           </div>
           <!--Monster Portrait and Name-->
           <div id="portrait-and-name" class="w-1/4 flex flex-col items-center justify-center space-y-4">
@@ -149,7 +127,7 @@
                     <div id='monster-current-level'>Level</div>
                   </td>
                   <td>
-                    <input id="monster-current-level-input"></input>
+                    <input id="monster-current-level-input" autocomplete="off"></input>
                   </td>
                 </tr>
                 <tr>
@@ -157,7 +135,7 @@
                     <div id='monster-current-HP'>HP</div>
                   </td>
                   <td>
-                    <input id="monster-current-HP-input"></input>
+                    <input id="monster-current-HP-input" autocomplete="off"></input>
                   </td>
                 </tr>
                 <tr>
@@ -165,7 +143,7 @@
                     <div id='monster-current-MP'>MP</div>
                   </td>
                   <td>
-                    <input id="monster-current-MP-input"></input>
+                    <input id="monster-current-MP-input" autocomplete="off"></input>
                   </td>
                 </tr>
                 <tr>
@@ -173,7 +151,7 @@
                     <div id='monster-current-AT'>AT</div>
                   </td>
                   <td>
-                    <input id="monster-current-AT-input"></input>
+                    <input id="monster-current-AT-input" autocomplete="off"></input>
                   </td>
                 </tr>
                 <tr>
@@ -181,7 +159,7 @@
                     <div id='monster-current-DF'>DF</div>
                   </td>
                   <td>
-                    <input id="monster-current-DF-input"></input>
+                    <input id="monster-current-DF-input" autocomplete="off"></input>
                   </td>
                 </tr>
                 <tr>
@@ -189,7 +167,7 @@
                     <div id='monster-current-AG'>AG</div>
                   </td>
                   <td>
-                    <input id="monster-current-AG-input"></input>
+                    <input id="monster-current-AG-input" autocomplete="off"></input>
                   </td>
                 </tr>
                 <tr>
@@ -197,7 +175,7 @@
                     <div id='monster-current-IN'>IN</div>
                   </td>
                   <td>
-                    <input id="monster-current-IN-input"></input>
+                    <input id="monster-current-IN-input" autocomplete="off"></input>
                   </td>
                 </tr>
                 <tr>
@@ -205,7 +183,7 @@
                     <div id='monster-projected-level'>Future level</div>
                   </td>
                   <td>
-                    <input id="monster-projected-level-input"></input>
+                    <input id="monster-projected-level-input" autocomplete="off"></input>
                   </td>
                 </tr>
               </table>
