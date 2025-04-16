@@ -12,8 +12,8 @@
     <div id="sidebar"></div>
     <!-- Main Content-->
         
-          <div class="ml-[200px] main-content">
-            <div class='monster-stats-info-top-bar'>
+          <div class="main-content">
+            <div class='ml-[200px] monster-stats-info-top-bar text-sm lg:text-base xl:text-xl'>
               
                 <div class="families-search-container">
 
@@ -32,7 +32,7 @@
                 <div id='monster-name'>Monster Name</div>
                 <div id='monster-family'>Monster Family</div>
               </div>
-              <table id="families-stat-table" border="1">
+              <table id="families-stat-table" class="text-center min-w-[400px]" border="1">
                 <thead>
                   <tr>
                     <th>Max Level</th>
@@ -61,11 +61,11 @@
               
               <div id="families-monster-skill-list">Skills: </div>
             </div>
-              <div class="family-wrapper w-[calc(100%-200px)] grid grid-cols-3 gap-5 p-5 mt-[150px]">
+              <div class="family-wrapper ml-[200px] w-[calc(100%-200px)] flex flex-wrap justify-center gap-8 p-6 mt-[150px] text-sm md:text-xl xl:text-base">
 
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Slime</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/slime/drakslimesprite.png">
@@ -111,9 +111,9 @@
                   </div>
                   
                 </div>
-                <div class="monster-family">
-                  <div class="family-title">Dragon</div>
-                  <div class="monster-grid">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                <div class="family-title">Dragon</div>
+                <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/dragonkidsprite.png">Dragonkid</div>
                     <div class="monster-selection">
@@ -164,9 +164,9 @@
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/divinegonsprite.png">Divinegon</div>
                   </div>
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Beast</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/beast/tonguellasprite.png">Tonguella
                     </div>
@@ -269,9 +269,9 @@
 
                   </div>
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Bird</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/bird/pickysprite.png">Picky
                     </div>
@@ -356,9 +356,9 @@
                   </div>
                   
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Plant</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/plant/madplantsprite.png">MadPlant
                     </div>
@@ -439,9 +439,9 @@
 
                   </div>
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Bug</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/bug/giantslugsprite.png">GiantSlug
                     </div>
@@ -525,9 +525,9 @@
 
                   </div>
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Devil</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/devil/pixysprite.png">Pixy
                     </div>
@@ -631,9 +631,9 @@
 
                   </div>
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Zombie</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/zombie/spookysprite.png">Spooky
                     </div>
@@ -717,9 +717,9 @@
 
                   </div>
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[500px]">
                   <div class="family-title">Material</div>
-                  <div class="monster-grid"> 
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2"> 
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/material/jewelbagsprite.png">Jewelbag
                     </div>
@@ -823,9 +823,9 @@
 
                   </div>
                 </div>
-                <div class="monster-family">
+                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
                   <div class="family-title">Boss</div>
-                  <div class="monster-grid">
+                  <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
                       <img class="monster-sprite" src="/Images/Monster_pics_by_family/boss/dracolordsprite.png">Dracolord
                     </div>
