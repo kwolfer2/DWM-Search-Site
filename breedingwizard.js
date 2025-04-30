@@ -66,61 +66,31 @@ function populateBreedingLists(targetMonsterName, monsterData) {
   partnersList.innerHTML = '';
 
   // Populate Pedigree List
-  const pedigrees = [];
-  if (targetMonster.breeding.pedigreeFamily) {
-    pedigrees.push(`${targetMonster.breeding.pedigreeFamily} Family`);
-  }
-  if (targetMonster.breeding.pedigreeOverrides) {
-    pedigrees.push(...targetMonster.breeding.pedigreeOverrides);
-  }
-  if (targetMonster.breeding.specificParents) {
-    targetMonster.breeding.specificParents.forEach(parent => {
-      if (parent.pedigreeOptions) {
-        pedigrees.push(...parent.pedigreeOptions);
-      }
-      if (parent.pedigree) {
-        pedigrees.push(parent.pedigree);
-      }
-    });
-  }
-  populateList(pedigreeList, pedigrees, 'pedigree');
-
-  // Populate Secondary List
-  const secondaries = [];
-  if (targetMonster.breeding.secondaryFamily) {
-    secondaries.push(`${targetMonster.breeding.secondaryFamily} Family`);
-  }
-  if (targetMonster.breeding.secondaryOverrides) {
-    secondaries.push(...targetMonster.breeding.secondaryOverrides);
-  }
-  if (targetMonster.breeding.specificParents) {
-    targetMonster.breeding.specificParents.forEach(parent => {
-      if (parent.secondaryOptions) {
-        secondaries.push(...parent.secondaryOptions);
-      }
-      if (parent.secondary) {
-        secondaries.push(parent.secondary);
-      }
-    });
-  }
-  populateList(secondaryList, secondaries, 'secondary');
-}
-
-function populateList(element, data, type) {
-  element.innerHTML = ''; // Clear previous content
-
-  if (data.length === 0) {
-    const emptyItem = document.createElement('li');
-    emptyItem.textContent = 'None';
-    element.appendChild(emptyItem);
-    return;
-  }
-
-  data.forEach(item => {
-    const listItem = document.createElement('li');
-    listItem.textContent = item;
-    element.appendChild(listItem);
-  });
+  if (targetMonster.breeding.pairGroups){
+      targetMonster.breeding.pairGroups.forEach(group => {
+        const pedigreeTitle = document.createElement('li');
+        pedigreeTitle.classList.add('text-center');
+        pedigreeTitle.textContent = `Group ${group.groupID}`;
+        pedigreeList.appendChild(pedigreeTitle);
+      group.pedigreeOptions.forEach(item =>{
+        const listItem = document.createElement('li');
+        listItem.classList.add('text-center');
+        listItem.textContent = item;
+        pedigreeList.appendChild(listItem);
+      })
+      const plusItem = document.createElement('li');
+      plusItem.classList.add('text-center');
+      plusItem.innerHTML = '<strong>+</strong>';
+      pedigreeList.appendChild(plusItem);
+        group.secondaryOptions.forEach(item => {
+          const listItem = document.createElement('li');
+          listItem.classList.add('text-center');
+        listItem.textContent = item;
+        pedigreeList.appendChild(listItem);
+        })
+        
+      })
+  };
 }
 
 // Clear fields when no monster is found
