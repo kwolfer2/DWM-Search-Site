@@ -1,65 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dragon Quest Monsters - Breeding Wizard</title>
     <!-- <link rel="stylesheet" href="styles.css"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="min-h-screen bg-gray-100 m-0 p-0 font-[Nunito] text-lg">
     <div class="flex flex-row w-full h-screen">
-<!-- Sidebar-->
-<div id="sidebar"></div>
-<!-- Main Content-->
-    <main class="ml-[200px] flex h-screen gap-4 p-4">
-      <!-- Search + Info-->
-       <div class="grid grid-cols-2 gap-4">
-
-         <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
-           <input type="text" id="monster-search" class="border rounded h-1/4 text-2xl" placeholder="Search for a monster...">
-           <button id="search-button" class="bg-blue-600 hover:bg-blue-700 font-[Nunito] text-white py-2 px-4 rounded mt-5">Search</button>
-          </div>
-          <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
+      <!-- Sidebar-->
+      <div id="sidebar"></div>
+      <!-- Main Content-->
+      <main class="ml-[200px] flex h-screen gap-4">
+        <!-- Left Column-->
+        <div class="flex flex-col w-1/2 rounded-xl gap-4">
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-x1 shadow  h-[66vh] w-[40vw] "
+          >
+            <input
+              type="text"
+              id="monster-search"
+              class="border rounded text-2xl"
+              placeholder="Search for a monster..."
+            />
+            <button
+              id="search-button"
+              class="bg-blue-600 hover:bg-blue-700 font-[Nunito] text-white py-2 px-4 rounded mt-5"
+            >
+              Search
+            </button>
+            <div
+            class="flex flex-col items-center bg-white rounded-x1 shadow"
+            >
             <!-- <h3>Searched Monster</h3> -->
-             <div class="h-1/2 flex items-center justify-center">
-               <img id="searched-monster-img" src="#" alt="Monster Portrait" />
-              </div>
-              <div class="h-1/2 flex flex-col items-center justify-center">
-                <div id="searched-monster-name">Monster Name: </div>
-                <div id="searched-monster-family">Family: </div>
-              </div>
+            <div class="flex items-center justify-center">
+              <img id="searched-monster-img" src="#" alt="Monster Portrait" />
+            </div>
+            
+            <div id="searched-monster-name">Monster Name:</div>
+            <div id="searched-monster-family">Family:</div>
           </div>
-
         </div>
-      <!-- Parent Info-->
-      <div class="grid grid-cols-2 gap-4">
-        <!--Pedigree-->
-        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
-          <h3>Pedigree</h3>
-          <ul id="pedigree-list"></ul>
+          <!-- Mate -->
+          <div
+            class="flex flex-col items-center bg-white rounded-x1 shadow h-[33vh] w-[40vw] overflow-auto"
+          >
+            <h3>Breeding Partners</h3>
+            <ul id="partners-list"></ul>
+          </div>
         </div>
-        <!-- Secondary-->
-        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
-          <h3>Secondary</h3>
-          <ul id="secondary-list"></ul>
+        <!--Right Column-->
+        <div class="flex flex-col w-1/2 rounded-xl gap-4">
+          <div
+            class="flex flex-col items-center bg-white rounded-x1 shadow h-[66vh] w-[40vw] overflow-auto"
+          >
+            <h3>Breeding Tree</h3>
+            <ul id="pedigree-list"></ul>
+          </div>
+          <!--  Offspring + Mates -->
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Offspring -->
+            <div
+              class="flex flex-col items-center bg-white rounded-x1 shadow h-[33vh] w-[40vw]"
+            >
+              <h3>Potential Offspring</h3>
+              <ul id="offspring-list"></ul>
+            </div>
+          </div>
         </div>
-      </div>
-        <!--  Offspring + Mates -->
-        <div class="grid grid-cols-2 gap-4">
-          <!-- Offspring -->
-        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
-          <h3>Potential Offspring</h3>
-          <ul id="offspring-list"></ul>
-        </div>
-        <!-- Mate -->
-        <div class="flex flex-col items-center bg-white rounded-x1 shadow p-4">
-          <h3>Breeding Partners</h3>
-           <ul id="partners-list"></ul>
-        </div>
+      </main>
     </div>
-</main>
-</div>
   </body>
   <script src="breedingwizard.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>

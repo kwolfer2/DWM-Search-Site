@@ -6,7 +6,6 @@ const pedigreeList = document.getElementById('pedigree-list');
 const searchedMonsterImage = document.getElementById('searched-monster-img');
 const breedingMonsterName = document.getElementById('searched-monster-name');
 const breedingMonsterFamily = document.getElementById('searched-monster-family');
-const secondaryList = document.getElementById('secondary-list');
 const offspringList = document.getElementById('offspring-list');
 const partnersList = document.getElementById('partners-list');
 
@@ -61,37 +60,44 @@ function populateBreedingLists(targetMonsterName, monsterData) {
 
   // Clear all lists
   pedigreeList.innerHTML = '';
-  secondaryList.innerHTML = '';
   offspringList.innerHTML = '';
   partnersList.innerHTML = '';
 
   // Populate Pedigree List
   if (targetMonster.breeding.pairGroups){
       targetMonster.breeding.pairGroups.forEach(group => {
-        const pedigreeTitle = document.createElement('li');
-        pedigreeTitle.classList.add('text-center');
-        pedigreeTitle.textContent = `Group ${group.groupID}`;
-        pedigreeList.appendChild(pedigreeTitle);
-      group.pedigreeOptions.forEach(item =>{
-        const listItem = document.createElement('li');
-        listItem.classList.add('text-center');
-        listItem.textContent = item;
-        pedigreeList.appendChild(listItem);
-      })
-      const plusItem = document.createElement('li');
-      plusItem.classList.add('text-center');
-      plusItem.innerHTML = '<strong>+</strong>';
-      pedigreeList.appendChild(plusItem);
-        group.secondaryOptions.forEach(item => {
-          const listItem = document.createElement('li');
-          listItem.classList.add('text-center');
-        listItem.textContent = item;
-        pedigreeList.appendChild(listItem);
-        })
-        
-      })
+        const groupContainer = document.createElement('div');
+        groupContainer.classList.add('mb-6');
+        const groupTitle = document.createElement('li');
+        groupTitle.classList.add('text-center', 'mb-2', 'col-span-2');
+        groupTitle.textContent = `Group ${group.groupID}`;
+        pedigreeList.appendChild(groupTitle);
+        const parentGrid = document.createElement('div');
+        parentGrid.classList.add('grid', 'grid-cols-2', 'gap-2', 'text-center');
+        const maxRows = Math.max(group.pedigreeOptions.length, group.secondaryOptions.length);
+        const pedigreeCol = document.createElement('div');
+        pedigreeCol.classList.add('flex', 'flex-col', 'gap-1', 'justify-center', 'h-full');
+        const secondaryCol = document.createElement('div');
+        secondaryCol.classList.add('flex', 'flex-col', 'gap-1', 'justify-center', 'h-full')
+        for(let i=0; i < maxRows; i++) {
+
+          const pedigreeItem = document.createElement('div');
+          pedigreeItem.textContent = group.pedigreeOptions[i] || '';
+          pedigreeCol.appendChild(pedigreeItem);
+          parentGrid.appendChild(pedigreeCol);
+          const secondaryItem = document.createElement('div');
+          secondaryItem.classList.add('flex', 'items-center', 'justify-center');
+          secondaryItem.textContent = group.secondaryOptions[i] || '';
+          secondaryCol.appendChild(secondaryItem);
+          parentGrid.appendChild(secondaryCol);
+          
+          
+        }
+          groupContainer.appendChild(parentGrid);
+          pedigreeList.appendChild(groupContainer);
+      });
+      }
   };
-}
 
 // Clear fields when no monster is found
 function clearFields() {
@@ -99,7 +105,6 @@ function clearFields() {
   searchedMonsterImage.src = '';
   searchedMonsterImage.alt = 'No image available';
   pedigreeList.innerHTML = '<li>None</li>';
-  secondaryList.innerHTML = '<li>None</li>';
   offspringList.innerHTML = '<li>None</li>';
   partnersList.innerHTML = '<li>None</li>';
 }
