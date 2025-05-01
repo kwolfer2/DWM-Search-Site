@@ -22,7 +22,8 @@ let monsterData = [];
 fetch('sidebar.html')
   .then(res => res.text())
   .then(html => {
-    document.getElementById('sidebar').innerHTML = html;});
+    document.getElementById('sidebar').innerHTML = html;
+    lucide.createIcons();});
 
 function addClickListenersToMonsters() {
   const monsterSelections = document.querySelectorAll('.monster-selection');

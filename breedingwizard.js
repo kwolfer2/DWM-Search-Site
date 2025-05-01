@@ -14,7 +14,8 @@ const partnersList = document.getElementById('partners-list');
 fetch('sidebar.html')
   .then(res => res.text())
   .then(html => {
-    document.getElementById('sidebar').innerHTML = html;});
+    document.getElementById('sidebar').innerHTML = html;
+    lucide.createIcons();});
 
 let monsterData = [];
 
@@ -69,7 +70,7 @@ function populateBreedingLists(targetMonsterName, monsterData) {
         const groupContainer = document.createElement('div');
         groupContainer.classList.add('mb-6');
         const groupTitle = document.createElement('li');
-        groupTitle.classList.add('text-center', 'mb-2', 'col-span-2');
+        groupTitle.classList.add('text-center', 'mb-2', 'col-span-2', 'font-bold');
         groupTitle.textContent = `Group ${group.groupID}`;
         pedigreeList.appendChild(groupTitle);
         const parentGrid = document.createElement('div');
