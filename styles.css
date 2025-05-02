@@ -323,6 +323,7 @@
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
+    z-index: 5;
   }
   
   .monster-selection:hover {
