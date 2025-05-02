@@ -23,7 +23,17 @@ fetch('sidebar.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('sidebar').innerHTML = html;
-    lucide.createIcons();});
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    } else {
+      const interval = setInterval(() => {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+          clearInterval(interval);
+        }
+      }, 50);
+    }
+  });
 
 function addClickListenersToMonsters() {
   const monsterSelections = document.querySelectorAll('.monster-selection');

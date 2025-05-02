@@ -23,8 +23,17 @@ fetch('sidebar.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('sidebar').innerHTML = html;
-    lucide.createIcons();});
-  
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    } else {
+      const interval = setInterval(() => {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+          clearInterval(interval);
+        }
+      }, 50);
+    }
+  });
 
 
 // Use the correct GitHub raw link
@@ -176,7 +185,7 @@ function searchMonster(name) {
       monsterSkillList.appendChild(skillDiv);
     });
     const portraitUrl = `https://github.com/kwolfer2/DWMsprites/blob/main/${findMonster.family.toLowerCase()}/${findMonster.name.toLowerCase()}.png?raw=true`;
-    monsterPortrait.innerHTML = `<img src="${portraitUrl}" alt="${findMonster.name} Portrait" class="w-12 sm:w-16 md:w-24 lg:w-32 xl:w-40"/>`;
+    monsterPortrait.innerHTML = `<img src="${portraitUrl}" alt="${findMonster.name} Portrait" class="w-24 lg:w-32 xl:w-40"/>`;
     console.log(portraitUrl);
   } else {
     console.log('Monster not found:', searchName);
