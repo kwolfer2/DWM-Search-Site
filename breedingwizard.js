@@ -109,25 +109,28 @@ function populateBreedingLists(targetMonsterName, monsterData) {
       });
       }
       // Populate Potential Offspring (offspring reccomendation)
-      function findPotentialOffpring(targetMonster, monsterData) {
+      
         const targetTier = targetMonster.tier;
         const targetName = targetMonster.name;
         const targetFamilyTag= `[${targetMonster.family.toUpperCase()}]`;
         const results = [];
 
+        // Each monster in monsterData
         monsterData.forEach(OSmonster => {
+          // Exclude lower / equal tier monsters
           if (OSmonster.tier <= targetTier || !OSmonster.breeding) return;
 
           OSmonster.breeding.pairGroups.forEach(group => {
             const {pedigreeOptions = [], secondaryOptions =[] } = group;
-          
+          // find targetMonster as Pedigree
           if (pedigreeOptions.includes(targetName)) {
             results.push({
-              name: OSmonster.name,
+              name: `${OSmonster.name} (P)`,
               groupID: group.groupID,
               role: "pedigree",
               partners: secondaryOptions
             });
+            // find targetMonster as Secondary
           } else if (secondaryOptions.includes(targetName)) {
             results.push({
               name: OSmonster.name,
@@ -135,9 +138,10 @@ function populateBreedingLists(targetMonsterName, monsterData) {
               role: "secondary",
               partners: pedigreeOptions
             });
+            // find targetMonster as generic monster family
           } else if (pedigreeOptions.includes(targetFamilyTag) || secondaryOptions.includes(targetFamilyTag)) {
             results.push({
-              name: OSmonster.name,
+              name: pedigreeOptions.includes(targetFamilyTag) ? `${OSmonster.name} (P)` : OSmonster.name,
               groupID: group.groupID,
               role: pedigreeOptions.includes(targetFamilyTag) ? "pedigree-family" : "secondary-family",
               partners: pedigreeOptions.includes(targetFamilyTag) ? secondaryOptions : pedigreeOptions
@@ -147,12 +151,30 @@ function populateBreedingLists(targetMonsterName, monsterData) {
         });
         console.log(results)
         results.forEach(monsterName => {
-          const offpsringDiv = document.getElementById('div');
-          offpsringDiv.textContent = `${monsterName.name}`
-          offspringList.appendChild(offpsringDiv)
-        })
+          const offpsringBtn = document.createElement('button');
+          offpsringBtn.textContent = `${monsterName.name}`
+          offpsringBtn.classList.add('bg-blue-600', 'hover:bg-blue-700', 'font-[Nunito]', 'text-white', 'py-2', 'px-2', 'mr-5', 'rounded', 'mt-5');
+          offspringList.appendChild(offpsringBtn)
+          console.log(`added ${monsterName.name} to offspringDiv`);
+          offpsringBtn.addEventListener('click', () => {
+            //Remove pressed in styling from all buttons
+            const allButtons = offspringList.querySelectorAll('button');
+    allButtons.forEach(btn => {
+      btn.classList.remove('bg-blue-300', 'hover:bg-gray-300');
+      btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+    });
+            partnersList.innerHTML = '';
+            offpsringBtn.classList.add('bg-blue-300', 'hover:bg-gray-300');
+            monsterName.partners.forEach(partner => {
+              const partnerTally = document.createElement('li');
+              partnerTally.textContent = partner;
+              partnersList.appendChild(partnerTally);
+
+            })
+          })
+        });
       }
-  };
+  
 
 // Clear fields when no monster is found
 function clearFields() {
@@ -180,7 +202,4 @@ breedingMonsterInput.addEventListener('keypress', event => {
 
   }
 });
-
-
-// Below is the first suggestion given by ChatGPT to include overrides, families, etc..
 
