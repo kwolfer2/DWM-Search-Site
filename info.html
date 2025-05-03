@@ -70,26 +70,52 @@
   </script>
     <!-- Main Content-->
         
-          <div class="ml-[50px] sm:ml-[200px]">
+          <div class="ml-[50px] sm:ml-[200px] xl:ml-[400px] xl:mr-[25vw]">
             <div class="container">
                 <h1 class="font-bold text-2xl">What is this?</h1>
                 <br>
-                <h2>Dragon Warrior Monsters</h2>
+                <h2><strong>Dragon Warrior Monsters</strong></h2>
+                
+                <p>Dragon Warrior Monsters is a monster-collecting and battling RPG released in 1998 (localized in 2000) for the Nintendo Game Boy. Comparable and clearly inspired by Pokémon, this game distinguishes itself through a unique monster breeding system, randomly generated dungeons, and all of the personality and polish that comes from being a part of the Dragon Quest universe. The monster designs are timeless and instantly recognizable as work from Akira Toriyama of Dragon Ball fame. In short, Dragon Warrior Monsters is about combining monsters to create the ultimate team and battling it out in the Starry Night Tournament to become the ultimate monster tamer!</p>
                 <br>
-                <p><strong>Dragon Warrior Monsters</strong> is a classic <strong>monster-collecting and battling RPG</strong> released in <strong>1998</strong> (localized in <strong>2000</strong>) for the <strong>Nintendo Game Boy</strong>. While often compared to <em>Pokémon</em>, this game carves out its own identity with <strong>deep breeding mechanics, strategic combat, and an expansive fantasy world</strong> rooted in the <em>Dragon Quest</em> universe. Featuring <strong>iconic character and creature designs by Akira Toriyama</strong> and developed by <strong>Enix</strong>, <em>Dragon Warrior Monsters</em> lets players train, breed, and command an army of monsters in their quest to become the ultimate Monster Master.</p>
-
-                <br>
-                <h1 class="font-bold text-2xl">How do I use this site and what makes it work?</h1>
-                <br>
-                <p>The point of this site is to provide information on the mosnters found in the game, commonly called a <strong>Beastiary</strong>. </p>
+                <p>The point of this site is to provide information on the monsters found in the game, commonly called a Bestiary.</p>
                 <br>
                 <h1 class="font-bold text-2xl">Monster Search</h1>
-                <p>This page serves as the primary way to access the raw info on each monster and features a stat projection feature. <strong>Monsters in Dragon Warrior Monsters do not have static assigned stats, they have growth rates.</strong> This means that the stats are any given monster are entirely dependent on a variety of factors that essentially boil down to <strong>Starting Stat Values + (Growth Rates * Current Level) = Current Stat Values</strong></p>
+                <p>This page serves as the primary way to access the raw info on each monster and includes a stat projection feature. The main info found here is monster name, family, skills, and growths. See the Stat Calculation section to learn more about what the growth values mean.</p>
                 <br>
-                <h2>Credits & Acknowledgments</h2>
+                <h2 class="font-bold text-xl">How it works</h2>
+                
+                <p>All of the monster data is hosted in a JSON file on Github. A fetch method is used to pull and store that object. That object can then be searched using a JavaScript function that matches data from the object array to user input.</p>
                 <br>
-                <p>This website was created by <strong>Kurt Wolfer</strong> as a demonstrative project to learn and apply <strong>HTML, CSS, and JavaScript</strong>. It is a work in progress and will continue to be improved over time.</p>
+                <h1 class="font-bold text-2xl">Breeding Wizard</h1>
+                <p>This page allows you to map out a breeding path for your monster or lists the components needed to breed the monster you search for. Every monster that can be bred has two parents. Either parent can be chosen as a Pedigree, which means every pair of two monsters has two mutually exclusive potential offspring. Each distinct ordering of monster pairs has exactly one offspring, but many monsters could be the offspring of many different parent combinations. There is also a loose tiering system incorporated into the monster metadata that guides the potential offspring suggestions to create rarer and more powerful monsters. There absolutely is a wrong way to breed monsters that results in an offspring weaker than both parents. This system is intended to mitigate that risk.</p>
                 <br>
+                <h2 class="font-bold text-xl">How it works</h2>
+                
+                <p>Again, the monster data is pulled from the JSON file on Github, which contains each monster and its possible parents. This data is parsed when the user searches for a monster, outputting all combinations of parents that could create that monster, as well as a few monsters that could be created using the searched monster as a parent.</p>
+                <br>
+                <h1 class="font-bold text-2xl">Families</h1>
+                <p>This page is a visualization of every monster in the game, grouped by family. This page is similar to the Monster Search Page, but shows all monsters by default and will narrow the full list down to monsters whose name contains what you search. This can be helpful when searching for a monster whose name contains “Drak” but is not part of the Dragon family, such as “Metaldrak”.</p>
+                <br>
+                <h1 class="font-bold text-2xl">Abilities</h1>
+                <p>This page displays a list of all skills in the game with a short description. </p>
+                <br>
+                <h2 class="font-bold text-xl">Stat Calculation</h2>
+                <p>Monsters in Dragon Warrior Monsters do not have static assigned stats or base stats, they have growth rates. This means that the stats of any given monster are entirely dependent on their starting values added with their growths. The formula looks like this:
+                </p>
+                <br>
+                <p class="font-bold text-xl">
+                  Starting Stat Values + (Growth Rates * Current Level) = Current Stat Values
+                 </p>
+                 <br>
+                 <p>The Growth Rate of each stat corresponds to an index of a master array found in the game’s code that determines how many points that stat will be awarded upon level up. You could imagine this master array as a giant table where one axis is a monster’s level, the other axis is the monster’s growth rate. The intersection would be the amount that monster will gain in that stat when reaching that level.</p>
+                
+                <p>Given how stat growths are calculated, a monster’s growth is predetermined the moment you hatch or capture it. How could any two monsters of the same species be different then? Monster breeding is the simple answer, but the full picture includes both inherited stats and inherited skills.</p>
+                <br>
+                <p class="font-bold text-xl">(Parent A Stat Value + Parent B Stat Value) / 4 = Initial Offspring Stat Value</p>
+                <br>
+                <br>
+                <h1 class="font-bold text-2xl">Credits & Acknowledgments</h1>
                 <p>I would like to acknowledge the following resources that helped make this project possible:</p>
                 <ul>
                     <li><strong>freeCodeCamp</strong> – for providing foundational web development education.</li>
