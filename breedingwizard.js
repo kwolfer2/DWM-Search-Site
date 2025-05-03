@@ -108,6 +108,50 @@ function populateBreedingLists(targetMonsterName, monsterData) {
           pedigreeList.appendChild(groupContainer);
       });
       }
+      // Populate Potential Offspring (offspring reccomendation)
+      function findPotentialOffpring(targetMonster, monsterData) {
+        const targetTier = targetMonster.tier;
+        const targetName = targetMonster.name;
+        const targetFamilyTag= `[${targetMonster.family.toUpperCase()}]`;
+        const results = [];
+
+        monsterData.forEach(OSmonster => {
+          if (OSmonster.tier <= targetTier || !OSmonster.breeding) return;
+
+          OSmonster.breeding.pairGroups.forEach(group => {
+            const {pedigreeOptions = [], secondaryOptions =[] } = group;
+          
+          if (pedigreeOptions.includes(targetName)) {
+            results.push({
+              name: OSmonster.name,
+              groupID: group.groupID,
+              role: "pedigree",
+              partners: secondaryOptions
+            });
+          } else if (secondaryOptions.includes(targetName)) {
+            results.push({
+              name: OSmonster.name,
+              groupID: group.groupID,
+              role: "secondary",
+              partners: pedigreeOptions
+            });
+          } else if (pedigreeOptions.includes(targetFamilyTag) || secondaryOptions.includes(targetFamilyTag)) {
+            results.push({
+              name: OSmonster.name,
+              groupID: group.groupID,
+              role: pedigreeOptions.includes(targetFamilyTag) ? "pedigree-family" : "secondary-family",
+              partners: pedigreeOptions.includes(targetFamilyTag) ? secondaryOptions : pedigreeOptions
+            });
+          }
+          });
+        });
+        console.log(results)
+        results.forEach(monsterName => {
+          const offpsringDiv = document.getElementById('div');
+          offpsringDiv.textContent = `${monsterName.name}`
+          offspringList.appendChild(offpsringDiv)
+        })
+      }
   };
 
 // Clear fields when no monster is found
