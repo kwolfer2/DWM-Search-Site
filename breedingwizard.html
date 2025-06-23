@@ -13,18 +13,18 @@
   <body class="min-h-screen bg-gray-100 m-0 p-0 font-[Nunito] text-lg">
     <div class="flex flex-row w-full h-screen">
       <!-- Sidebar-->
-      <div id="sidebar"></div>
+      <div id="sidebar" class="fixed"></div>
       <!-- Main Content-->
-      <main class="ml-[50px] sm:ml-[200px] flex h-screen gap-4">
+      <main class="ml-[60px] sm:ml-[230px] flex flex-col lg:flex-row items-center text-center h-screen gap-4">
         <!-- Left Column-->
-        <div class="h-full flex flex-col justify-evenly w-1/2 rounded-xl gap-4">
+        <div class="h-full flex flex-col justify-evenly w-full sm:w-2/3 rounded-xl gap-4">
           <div
-            class="flex flex-col items-center justify-evenly bg-white rounded-x1 shadow  h-[66vh] w-[40vw] "
+            class="flex flex-col items-center justify-evenly bg-white rounded-x1 shadow h-[66vh] w-full "
           >
             <input
               type="text"
               id="monster-search"
-              class="border rounded text-2xl text-center"
+              class="border rounded text-2xl text-center container"
               placeholder="Search for a monster..."
             />
             <button
@@ -47,16 +47,16 @@
         </div>
           <!-- Mate -->
           <div
-            class="flex flex-col items-center bg-white rounded-x1 shadow h-[33vh] w-[40vw] overflow-auto"
+            class="flex flex-col items-center bg-white rounded-x1 shadow h-[33vh] w-full overflow-auto"
           >
             <h3 class="mt-[15px]">Breeding Partners</h3>
             <ul id="partners-list"></ul>
           </div>
         </div>
         <!--Right Column-->
-        <div class="flex flex-col w-1/2 rounded-xl gap-4">
+        <div class="flex flex-col w-max sm:w-2/3 rounded-xl gap-4">
           <div
-            class="flex flex-col items-center bg-white rounded-x1 shadow h-[66vh] w-[40vw] overflow-auto"
+            class="flex flex-col items-center bg-white rounded-x1 shadow h-[66vh] w-full overflow-auto"
           >
             <h3 class="mt-[15px]">Possible Parents</h3>
             <ul id="pedigree-list"></ul>
@@ -65,7 +65,7 @@
           <div class="grid grid-cols-2 gap-4">
             <!-- Offspring -->
             <div
-              class="flex flex-col items-center bg-white rounded-x1 shadow h-[33vh] w-[40vw]"
+              class="flex flex-col items-center bg-white rounded-x1 shadow h-[33vh] w-full"
             >
               <h3 class="mt-[15px]">Potential Offspring</h3>
               <ul id="offspring-list"></ul>
