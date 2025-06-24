@@ -10,9 +10,9 @@
     display: flex;
     height: 100vh;
     background-image: url('https://fyre.cdn.sewest.net/dragon-quest-hub/647e232baed7bb35a299af31/media-background-XF5Va5e2D.jpg?quality=85&width=3840');
-    background-size: cover;  /* Make sure the background covers the entire page */
-    background-position: right top; /* Position it to account for the sidebar */
-    background-attachment: fixed; /* Keep the background fixed as you scroll */
+    background-size: cover;  
+    background-position: right top;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     
     
@@ -25,8 +25,8 @@
     background-color: #333;
     color: gray;
     padding: 15px;
-    position: fixed; /* Keep the sidebar fixed on the left */
-    height: 100%; /* Make the sidebar full height */
+    position: fixed;
+    height: 100%;
   }
 
   .highlight {
@@ -86,7 +86,7 @@
     padding: 0.5rem;
   }
   
-  /* Main content styling */
+  
   .main-content {
    
     padding: 10px;

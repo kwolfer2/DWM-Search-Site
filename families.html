@@ -12,20 +12,19 @@
     <div id="sidebar"></div>
     <!-- Main Content-->
         
-          <div class="main-content">
+          <div class="ml-[50px] sm:ml-[200px] w-full">
             <!-- Top Bar-->
-            <div class='z-8 ml-[50px] sm:ml-[200px] monster-stats-info-top-bar grid grid-cols-1 lg:flex flex-wrap lg-flex:nowrap min-w-[600px] overflow-x-auto h-auto xl:h-[150px] text-sm lg:text-base justify-center items-center'>
-              
-                <div class="families-search-container">
-
-
-                  <label for="search-wrapper" class="big-title">Monster Search</label>
+            <div class='flex flex-col md:flex-row bg-[#004d99] '>
+              <!-- search div -->
+                <div class="flex flex-col w-full md:w-1/4 p-4 text-center">
+                  <label for="search-wrapper" class="">Monster Search</label>
                   <input type='search' id="families-search" autocomplete="off" placeholder="Search for a Monster!" />
                  <!--  <div id="suggestions"></div>
           <div id="details-container"></div> -->
                   <button type="button" id="families-search-button">Search</button>
                 </div>
-              <div id="families-monster-info-container">
+                <!-- pic and name div -->
+              <div class="flex flex-col w-full md:w-1/4" id="families-monster-info-container">
 
                 <div id='monster-portrait'>
                   <img src="/Images/Monster_pics_by_family/slime/slime.png"></div>
@@ -33,8 +32,9 @@
                 <div id='monster-name'>Monster Name</div>
                 <div id='monster-family'>Monster Family</div>
               </div>
-              <div id="families-monster-skill-list" class="mx-auto flex text-center items-center">Skills: </div>
-              <table id="families-stat-table" class="mx-auto text-center justify-center text-sm min-w-[400px] max-w-[600px]" border="1">
+              <div class="flex flex-col w-full md:w-1/4" id="families-monster-skill-list" class="">Skills: </div>
+              <!-- Table div -->
+              <table id="families-stat-table" class="w-full md:w-1/4 h-full table-fixed border border-gray-400 text-sm text-center p-0" border="1">
                 <thead>
                   <tr>
                     <th>Max Level</th>
@@ -62,7 +62,7 @@
               </table>
             </div>
               <!-- Begin Family Containers -->
-              <div class="family-wrapper ml-[50px] sm:ml-[200px] sm:w-[calc(100%-200px)] flex flex-wrap justify-center gap-8 p-6 mt-[380px] lg:mt-[180px] text-sm md:text-xl xl:text-base">
+              <div class="family-wrapper w-full flex flex-wrap justify-center gap-8 p-6">
                 
                 <div class="monster-family flex-1 min-w-[350px] max-w-[450px]">
                   <div class="family-title">Slime</div>
