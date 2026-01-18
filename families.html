@@ -14,27 +14,29 @@
         
           <div class="ml-[50px] sm:ml-[200px] w-full">
             <!-- Top Bar-->
-            <div class='flex flex-col md:flex-row bg-[#004d99] '>
+            <div class='grid grid-cols-1 md:grid-cols-12  items-center bg-[#004d99] '>
+
               <!-- search div -->
-                <div class="flex flex-col w-full md:w-1/4 p-4 text-center">
-                  <label for="search-wrapper" class="">Monster Search</label>
+                <div class="md:col-span-3 flex flex-col p-4 text-center">
+                  <label for="search-wrapper" class="font-extrabold text-white">Monster Search</label>
                   <input type='search' id="families-search" autocomplete="off" placeholder="Search for a Monster!" />
                  <!--  <div id="suggestions"></div>
           <div id="details-container"></div> -->
                   <button type="button" id="families-search-button">Search</button>
                 </div>
                 <!-- pic and name div -->
-              <div class="flex flex-col w-full md:w-1/4" id="families-monster-info-container">
+              <div class="md:col-span-3" id="families-monster-info-container">
 
                 <div id='monster-portrait'>
                   <img src="/Images/Monster_pics_by_family/slime/slime.png"></div>
                 
-                <div id='monster-name'>Monster Name</div>
-                <div id='monster-family'>Monster Family</div>
+                <div class="font-extrabold text-white" id='monster-name'>Monster Name</div>
+                <div class="font-extrabold text-white" id='monster-family'>Monster Family</div>
               </div>
-              <div class="flex flex-col w-full md:w-1/4" id="families-monster-skill-list" class="">Skills: </div>
+              <div class="md:col-span-3 font-extrabold text-white" id="families-monster-skill-list" >Skills: </div>
               <!-- Table div -->
-              <table id="families-stat-table" class="w-full md:w-1/4 h-full table-fixed border border-gray-400 text-sm text-center p-0" border="1">
+              <div class="md:col-span-3 box-border">
+              <table id="families-stat-table" class="h-100% w-full table-fixed border border-gray-400 text-sm text-center items-center p-0" border="1">
                 <thead>
                   <tr>
                     <th>Max Level</th>
@@ -49,22 +51,24 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><div id="monster-max-level-out"></div></td>
-                    <td><div id="monster-experience-out"></div></td>
-                    <td><div id="monster-hp-out"></div></td>
-                    <td><div id="monster-mp-out"></div></td>
-                    <td><div id="monster-at-out"></div></td>
-                    <td><div id="monster-df-out"></div></td>
-                    <td><div id="monster-ag-out"></div></td>
-                    <td><div id="monster-in-out"></div></td>
+                    <td><div id="monster-max-level-out">0</div></td>
+                    <td><div id="monster-experience-out">0</div></td>
+                    <td><div id="monster-hp-out">0</div></td>
+                    <td><div id="monster-mp-out">0</div></td>
+                    <td><div id="monster-at-out">0</div></td>
+                    <td><div id="monster-df-out">0</div></td>
+                    <td><div id="monster-ag-out">0</div></td>
+                    <td><div id="monster-in-out">0</div></td>
                   </tr>
                 </tbody>
               </table>
+
+              </div>
             </div>
               <!-- Begin Family Containers -->
               <div class="family-wrapper w-full flex flex-wrap justify-center gap-8 p-6">
                 
-                <div class="monster-family flex-1 min-w-[350px] max-w-[450px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[450px]">
                   <div class="family-title">Slime</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     
@@ -112,7 +116,7 @@
                                                           </div>
                                                           
                                                         </div>
-                                                        <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                                                        <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                                                           <div class="family-title">Dragon</div>
                                                           <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                                                             <div class="monster-selection">
@@ -165,7 +169,7 @@
                                                             <img class="monster-sprite" src="/Images/Monster_pics_by_family/dragon/divinegonsprite.png">Divinegon</div>
                                                           </div>
                                                         </div>
-                                                        <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                                                        <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                                                           <div class="family-title">Beast</div>
                                                           <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                                                             <div class="monster-selection">
@@ -270,7 +274,7 @@
 
                   </div>
                 </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                   <div class="family-title">Bird</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
@@ -357,7 +361,7 @@
                   </div>
                   
                 </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                   <div class="family-title">Plant</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
@@ -444,7 +448,7 @@
 
                   </div>
                 </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                   <div class="family-title">Bug</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
@@ -530,7 +534,7 @@
 
                   </div>
                 </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                   <div class="family-title">Devil</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
@@ -636,7 +640,7 @@
 
                   </div>
                 </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                   <div class="family-title">Zombie</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
@@ -722,7 +726,7 @@
 
                   </div>
                 </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[500px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                   <div class="family-title">Material</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2"> 
                     <div class="monster-selection">
@@ -828,7 +832,7 @@
 
                   </div>
                 </div>
-                <div class="monster-family flex-1 min-w-[350px] max-w-[400px]">
+                <div class="monster-family flex-1 min-w-[450px] max-w-[400px]">
                   <div class="family-title">Boss</div>
                   <div class="monster-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                     <div class="monster-selection">
