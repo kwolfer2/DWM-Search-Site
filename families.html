@@ -20,8 +20,6 @@
                 <div class="md:col-span-3 flex flex-col p-4 text-center">
                   <label for="search-wrapper" class="font-extrabold text-white">Monster Search</label>
                   <input type='search' id="families-search" autocomplete="off" placeholder="Search for a Monster!" />
-                 <!--  <div id="suggestions"></div>
-          <div id="details-container"></div> -->
                   <button type="button" id="families-search-button">Search</button>
                 </div>
                 <!-- pic and name div -->
@@ -33,9 +31,10 @@
                 <div class="font-extrabold text-white" id='monster-name'>Monster Name</div>
                 <div class="font-extrabold text-white" id='monster-family'>Monster Family</div>
               </div>
-              <div class="md:col-span-3 font-extrabold text-white" id="families-monster-skill-list" >Skills: </div>
+              <!-- Skills -->
+              <div class="md:col-span-3 flex items-center justify-center p-4 text-center text-white font-extrabold" id="families-monster-skill-list" >Skills: </div>
               <!-- Table div -->
-              <div class="md:col-span-3 box-border">
+              <div class="md:col-span-3 flex justify-center items-center box-border">
               <table id="families-stat-table" class="h-100% w-full table-fixed border border-gray-400 text-sm text-center items-center p-0" border="1">
                 <thead>
                   <tr>
